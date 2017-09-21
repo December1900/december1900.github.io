@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Mac环境下快速反编译APK · Sweeney Di's Blog</title><meta name="description" content="Mac环境下快速反编译APK - Sweeney Di"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://github.com/December1900/December1900.github.io.git/atom.xml" title="Sweeney Di's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/fei-rou-gu-tou" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="https://github.com/December1900" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Mac环境下快速反编译APK</h1><div class="post-info">Sep 29, 2016</div><div class="post-content"><h1 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h1><p><a href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>（apktool、dex2jar）、<a href="https://github.com/java-decompiler/jd-gui">jd-gui</a></p>
+<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png" alt="AndroidDecompiler"></p>
+<a id="more"></a>
+<hr>
+<h1 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h1><h2 id="反编译AndroidManifest-xml和资源文件"><a href="#反编译AndroidManifest-xml和资源文件" class="headerlink" title="反编译AndroidManifest.xml和资源文件"></a>反编译AndroidManifest.xml和资源文件</h2><p>为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler目录下的dex2jar均copy到相应的目录下.</p>
+<p>再使用apktool反编译apk，可以获得AndroidManifest.xml和资源文件.</p>
+<blockquote>
+<p>$ apktool d app-release.apk</p>
+</blockquote>
+<p>执行完输出后，目录会新增一个app-release文件夹，里面有我们想要的res/和xml，到此资源文件已经反编译完成.</p>
+<h2 id="反编译java代码"><a href="#反编译java代码" class="headerlink" title="反编译java代码"></a>反编译java代码</h2><p>1.先解压.apk文件</p>
+<blockquote>
+<p>//解压app-release.apk到指定新建的app-release_source目录下<br>$ unzip app-release.apk -d app-release_source</p>
+</blockquote>
+<p>2.反编译.dex文件</p>
+<blockquote>
+<p>//在app-release_source目录下找到classes.dex并反编译为.class文件<br>$ sh dex2jar/d2j-dex2jar.sh app-release_source/classes.dex</p>
+</blockquote>
+<p>3.使用jd-gui打开第二步编译出的classes-dex2jar.jar文件</p>
+<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91jd-gui.png" alt="jd-gui"></p>
+<p>OK此时各种变量已经被混淆，说明反编译成功</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/10/10/Android-QCharge/" class="prev">PREV</a><a href="/2016/09/07/Android-shareWechat/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2017 <a href="https://github.com/December1900/December1900.github.io.git">Sweeney Di</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Android 跳坑信鸽推送 · Sweeney Di's Blog</title><meta name="description" content="Android 跳坑信鸽推送 - Sweeney Di"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://github.com/December1900/December1900.github.io.git/atom.xml" title="Sweeney Di's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/fei-rou-gu-tou" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="https://github.com/December1900" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Android 跳坑信鸽推送</h1><div class="post-info">Sep 3, 2016</div><div class="post-content"><p>写在前面:</p>
+<p>不得不说信鸽推送真是坑超多，尤其官方文档跟没讲一样,心累整理详细流程(SDK 2.46)</p>
+<a id="more"></a>
+<hr>
+<h1 id="配置和注册"><a href="#配置和注册" class="headerlink" title="配置和注册"></a>配置和注册</h1><p>  基本流程按照官方文档来，代码直接copy就可以了，不过需要注意几点.</p>
+<ul>
+<li><p><strong>使用AS要根据提示设置android:name=android.intent.action</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=<span class="string">"com.tencent.android.tpush.XGPushActivity"</span></div><div class="line">    android:exported=<span class="string">"true"</span>&gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;!-- 若使用AndroidStudio，请设置android:name=<span class="string">"android.intent.action"</span>--&gt;</div><div class="line">        &lt;action android:name=<span class="string">"android.intent.action"</span>/&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>正确配置XGRemoteService，且intent-filter中是否正确设置</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;action android:name=<span class="string">"应用包名.PUSH_ACTION"</span> /&gt; 应用包名为当前APP包名</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>完成配置后，在工程的主activity(一般都是mainactivity)onCreate重载方法里添加如下代码</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Context context = getApplicationContext();</div><div class="line">          XGPushConfig.enableDebug(<span class="keyword">this</span>,<span class="keyword">true</span>);</div><div class="line">          XGPushConfig.getToken(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">//为了方便获取注册是否成功的状态，使用带callback的版本</span></div><div class="line">		  XGPushManager.registerPush(context,<span class="string">"users"</span>,newXGIOperateCallback() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span> <span class="params">(Object data,<span class="keyword">int</span> i)</span></span>&#123;</div><div class="line">            Log.d(<span class="string">"TPush"</span>, <span class="string">"注册成功，设备token为："</span> + data);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFail</span> <span class="params">(Object data,<span class="keyword">int</span> errCode, String msg)</span></span>&#123;</div><div class="line">            Log.d(<span class="string">"TPush"</span>, <span class="string">"注册失败，错误码："</span> + errCode + <span class="string">",错误信息："</span> + msg);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>正确输入自己的ACCESS ID和ACCESS KEY</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> &lt;!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“<span class="number">21</span>”开头的<span class="number">10</span>位数字，中间没空格 --&gt;</div><div class="line">&lt;meta-data</div><div class="line">    android:name=<span class="string">"XG_V2_ACCESS_ID"</span></div><div class="line">    android:value=<span class="string">"21********"</span>/&gt;</div><div class="line">&lt;!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的<span class="number">12</span>位字符串，中间没空格 --&gt;</div><div class="line">&lt;meta-data</div><div class="line">    android:name=<span class="string">"XG_V2_ACCESS_KEY"</span></div><div class="line">    android:value=<span class="string">"A***********"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="跳坑-带泪的亲历"><a href="#跳坑-带泪的亲历" class="headerlink" title="跳坑(带泪的亲历)"></a>跳坑(带泪的亲历)</h1><p>如果觉得这么简单就完了，那真是too young too simple了，坑得一步步跳</p>
+<ul>
+<li><strong>按照指示将下载下来的libs中的so和jar集成到AS上的libs中去，其中V4包直接删掉因为没有谁不带support库的，然后要在build.gradle添加如下代码</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">		 main&#123;</div><div class="line">				 jniLibs.srcDirs=[<span class="string">'libs'</span>]&#125;</div><div class="line">		 &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>编译时候出现无法找到so文件</strong></p>
+<ul>
+<li><p>第一是需要添加多个平台的so文件，只按照官方文档添加一个armeabi是肯定行不通的，因为每个品牌的手机需要的so文件是不一样的，如果做测试肯定需要每个平台的so文件来适配主流手机</p>
+<p> 拿我自己来说魅族手机需要添加armeabi，armeabi-v7，arm64-v8a<br> 但小米就只需要添加armeabi,armeabi-v7 </p>
+</li>
+<li>第二如果工程之前就添加了某些平台的so文件(比如andfix)，则需要把所有的so文件分平台「<strong>合并</strong>」否则也会找不到so文件</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>logcat显示XGRemotService无法认证显示</strong></p>
+<blockquote>
+<p><strong>这说明自己工程的id和推上信鸽的应用包名不一致，也就是信鸽显示的应用包名错误，需要重新提交应用保持一致</strong></p>
+</blockquote>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/09/07/Android-shareWechat/" class="prev">PREV</a><a href="/2016/02/20/Meizu MX5-2/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2017 <a href="https://github.com/December1900/December1900.github.io.git">Sweeney Di</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

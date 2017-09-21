@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 手机屏幕色域的科普 · Sweeney Di's Blog</title><meta name="description" content="手机屏幕色域的科普 - Sweeney Di"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://github.com/December1900/December1900.github.io.git/atom.xml" title="Sweeney Di's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/fei-rou-gu-tou" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="https://github.com/December1900" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">手机屏幕色域的科普</h1><div class="post-info">Nov 13, 2015</div><div class="post-content"><p>随着今年S6那块SuperAMOLED的大受好评以及最近坊间盛传”凤”7及之后将采用AMOLED屏幕,AMOLED以及广色域屏热度一下子似乎炒了起来。</p>
+<a id="more"></a>
+<hr>
+<h1 id="什么是”色域”-为什么会有这么多的”色域”"><a href="#什么是”色域”-为什么会有这么多的”色域”" class="headerlink" title="什么是”色域”?为什么会有这么多的”色域”?"></a>什么是”色域”?为什么会有这么多的”色域”?</h1><p>色域就是指由颜色构成的某个完全的子集。而人类肉眼能看到的色彩空间其实这样定义的:</p>
+<blockquote>
+<p>1931,CIE(国际照明委员会)制订了一套CIE1931 RGB色彩系统,规定将700nm的红,546.1nm的绿以及435.8nm的蓝作为标准三原色以他们为基础构成三角形或多边形空间,囊括它们构成的各种补色就形成了下面这张图,这基本就是人眼所能看到的所有色彩了,这货的标准名称叫做”CIE1931-xy色度图”。</p>
+</blockquote>
+<p> <img src="http://img.ithome.com/newsuploadfiles/2016/1/20160127_172905_921.png" alt="CIE1931-xy色度图"></p>
+<p> 「<strong>色域越高及包含的颜色越丰富,越接近肉眼所见的真实色彩.</strong>」</p>
+<hr>
+<h1 id="sRGB-NTSC-Adobe-RBG色域是什么-之间有什么关系-广色域是什么"><a href="#sRGB-NTSC-Adobe-RBG色域是什么-之间有什么关系-广色域是什么" class="headerlink" title="sRGB,NTSC,Adobe RBG色域是什么?之间有什么关系?广色域是什么?"></a>sRGB,NTSC,Adobe RBG色域是什么?之间有什么关系?广色域是什么?</h1><p>简单来说[NTSC][1]色域就是美国国家电视委员会在1952年制定出来规范彩色电视显示的,而[sRBG][2]色域则是IEC和微软专门针对PC彩色显示器的,通俗叫做标准色彩空间。sRGB比NTSC色域所规定的范围要小不少,大概只有72%左右,但是72%的NTSC色域其实和sRGB并不重合,两者只是面积相当,覆盖的范围是不一样的。上张图便于理解。</p>
+<p> <img src="http://img.poco.cn/mypoco/myphoto/20070129/3238618520070129150902040.jpg" alt="三者关系"></p>
+<p>而随着摄影技术发展起来的Adobe RGB色域,大概涵盖约50%的肉眼可见色。因为相机的CCD和CMOS可采集到的色域已经远远超出了sRGB的范围,很多高端显示器也能做到更高色域。简而言之Adobe RGB是给高端和发烧友使用的。</p>
+<p>其实所谓的广色域反之超过72% NTSC色域的其他所有色域,但就国际标准而言,只有色域超过了92% NTSC才能算得上广色域屏幕，三星和LG的AMOLED基本都超过了100%的NTSC色域。</p>
+<hr>
+<h1 id="那么当广色域屏幕遇到sRGB内容是会发生什么-两者换过来又会怎样"><a href="#那么当广色域屏幕遇到sRGB内容是会发生什么-两者换过来又会怎样" class="headerlink" title="那么当广色域屏幕遇到sRGB内容是会发生什么?两者换过来又会怎样?"></a>那么当广色域屏幕遇到sRGB内容是会发生什么?两者换过来又会怎样?</h1><p>要知道的是,目前市面上的相机和扫描仪等色彩输入设备，显示器或投影仪等色彩输出设备，以及Windows和Mac OS等操作系统的默认色域都是sRGB，网页、游戏、程序等也通通都是基于sRGB建立的。</p>
+<p>首先sRGB和NTSC色域一样都是用CIE xy坐标体系表示的,也就是说显示最大某种颜色(例如红色)坐标的是一样的。上面也说过,NTSC色域下的最大某种颜色绝对是比sRGB下的最大某种颜色饱和度更高更艳丽。</p>
+<p>当手机图片获取器识别出图片中的某色坐标,也告诉了手机要显示出正确的某色坐标,但是屏幕本身却并不是基于sRGB色彩空间的,而是92%的NTSC,此时屏幕应该显示个稍弱的某色。但是屏幕无法知晓这种错误,直接简单粗暴显示出92% NTSC色域下的某色,自然也就过饱和了。</p>
+<p>「<strong>In a word,基于sRGB色域的内容在广色域屏幕上,会发生色域的放大,颜色会发生偏移,画面中的颜色饱和度都会相应提高。</strong>」</p>
+<p>而Adobe RGB色域下的图片看起来偏黯淡是因为Adobe RGB与NTSC相对比较接近,两者差异较小,因此实际显示在屏幕上的画面色彩更接近真实场景。</p>
+<p>所以这就是为什么在高色域屏幕(Super AMOLED)手机上看到的照片艳丽无比,但放到其他sRGB色域屏幕手机上(比如iPhone)和显示器上,照片已下载就会变得暗淡失色的原因。</p>
+<p>从上面来看,广色域屏幕是能够让基于sRGB色彩空间的内容看起来更加艳丽,但是却牺牲了画面本身的真实性,并且现在依然有很多使用sRGB手机和显示器的用户。「<strong>因此这就是为什么同样的朋友圈照片,每个人看到东西不一样,给出的评价也不一样了。</strong>」</p>
+<hr>
+<h1 id="屏幕子像素的排列方式"><a href="#屏幕子像素的排列方式" class="headerlink" title="屏幕子像素的排列方式"></a>屏幕子像素的排列方式</h1><p>屏幕子像素的排列方式一般分为两种,一种是标准RGB排列方式,另一种是RGB PenTile排列方式(也就是我们常说的P排)。</p>
+<h2 id="RGB排列"><a href="#RGB排列" class="headerlink" title="RGB排列"></a>RGB排列</h2><p>RGB排列是最标准的排列方式,它把一个方块形的像素,平均分成三等分,每一块赋予不同的颜色,这样就可以构成一个彩色像素。这也绝大多数液晶显示器以及<em>IPS</em>屏幕所采用的子像素排列方法。</p>
+<h2 id="PenTile排列"><a href="#PenTile排列" class="headerlink" title="PenTile排列"></a>PenTile排列</h2><p>PenTile排列其实是一种OLED屏幕的像素排列方式,现在采用PenTile排列的屏幕只要为三星的AMLOED和Super AMOLED(当然还有SONY,LG)。</p>
+<p>与标准RGB排列的像素点由红绿蓝三个子像素组成的不同,PenTile的单个像素点只有”红绿”或者”蓝绿”两个子像素点组成。我们知道只有三基色才能构成所有的颜色,所以实际显示图像时,PenTile的一个像素点会”借”用与其他相邻的像素点的另一种颜色来构成三基色。水平方向,每个像素和相邻的像素共享自己不具备的那种颜色的子像素,共同达到白色显示。</p>
+<p>追其根本,PenTile是一种通过相邻像素公用子像素的方式,减少子像素个数,从而达到以低分辨率去模拟高分辨率的效果。</p>
+<p>优点是屏幕的贴合层比用RGB排列IPS屏幕少,所以更艳丽,成本更低。</p>
+<p>缺点就不言而喻了。一旦要显示精细内容的时候,清晰度远不及RGB排列的IPS屏幕;</p>
+<p>「 <strong>而为了弥补色彩问题，所以在PenTile技术下显示色彩分割区的时候，分割线会产生两倍于实际像素点距的锯齿状纹路，也就是会产生锯齿状边缘。最后一点就是只要显示的内容不是白色，就会出现两倍于点距的网格状斑点。</strong> 」    </p>
+<p>「 <strong>所以说，RGB PenTile技术的显示屏必须需要拥有足够高的分辨率，才可以弥补由于会产生两倍点距纹理带来的视觉效果下降。</strong> 」</p>
+<p>也就是我们通常所说的,「<strong>无2K,不A屏.</strong>」</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/02/19/Meizu MX5-1/" class="prev">PREV</a></div><div class="copyright"><p>© 2015 - 2017 <a href="https://github.com/December1900/December1900.github.io.git">Sweeney Di</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
