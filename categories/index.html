@@ -7,15 +7,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="google-site-verification" content="" />
   
-  <title>Mac环境下快速反编译APK</title>
+  <title>categories</title>
   <meta name="author" content="Sweeney Di">
-  <meta name="description" content="工具准备AndroidDecompiler（apktool、dex2jar）、jd-gui
-
-
-反编译反编译AndroidManifest.xml和资源文件为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然">
   
   
-  <meta property="og:title" content="Mac环境下快速反编译APK"/>
+  <meta property="og:title" content="categories"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:site_name" content="Sweeney Di&#39;s Blog"/>
   <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
@@ -41,12 +37,12 @@
     <div class="container">
       
 
-  <article class="standard post">
+  <article class="standard page">
     <div class="title">
       
   
     <h1 class="page-title center">
-        Mac环境下快速反编译APK
+        categories
     </h1>
   
 
@@ -54,24 +50,15 @@
     </div>
     <div class="meta center">
       
-<time datetime="2016-09-28T16:00:00.000Z">
+<time datetime="2017-11-25T06:53:17.000Z">
 <svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
     <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
   </svg>
   &nbsp;
-  2016-09-29
+  2017-11-25
 </time>
 
 
-
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/Android/">Android</a>
 
 
 
@@ -82,27 +69,7 @@
     <div class="picture-container">
       
     </div>
-    <h1 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h1><p><a href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>（apktool、dex2jar）、<a href="https://github.com/java-decompiler/jd-gui">jd-gui</a></p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png" alt="AndroidDecompiler"></p>
-<hr>
-<h1 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h1><h2 id="反编译AndroidManifest-xml和资源文件"><a href="#反编译AndroidManifest-xml和资源文件" class="headerlink" title="反编译AndroidManifest.xml和资源文件"></a>反编译AndroidManifest.xml和资源文件</h2><p>为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler目录下的dex2jar均copy到相应的目录下.</p>
-<p>再使用apktool反编译apk，可以获得AndroidManifest.xml和资源文件.</p>
-<blockquote>
-<p>$ apktool d app-release.apk</p>
-</blockquote>
-<p>执行完输出后，目录会新增一个app-release文件夹，里面有我们想要的res/和xml，到此资源文件已经反编译完成.</p>
-<h2 id="反编译java代码"><a href="#反编译java代码" class="headerlink" title="反编译java代码"></a>反编译java代码</h2><p>1.先解压.apk文件</p>
-<blockquote>
-<p>//解压app-release.apk到指定新建的app-release_source目录下<br>$ unzip app-release.apk -d app-release_source</p>
-</blockquote>
-<p>2.反编译.dex文件</p>
-<blockquote>
-<p>//在app-release_source目录下找到classes.dex并反编译为.class文件<br>$ sh dex2jar/d2j-dex2jar.sh app-release_source/classes.dex</p>
-</blockquote>
-<p>3.使用jd-gui打开第二步编译出的classes-dex2jar.jar文件</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91jd-gui.png" alt="jd-gui"></p>
-<p>OK此时各种变量已经被混淆，说明反编译成功</p>
-
+    
 
   </article>
   </script>

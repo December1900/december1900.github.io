@@ -1,7 +1,91 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 设计模式读书笔记-单例模式 · Sweeney Di's Blog</title><meta name="description" content="设计模式读书笔记-单例模式 - Sweeney Di"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://github.com/December1900/December1900.github.io.git/atom.xml" title="Sweeney Di's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.zhihu.com/people/fei-rou-gu-tou" target="_blank" class="nav-list-link">ZHIHU</a></li><li class="nav-list-item"><a href="https://github.com/December1900" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">设计模式读书笔记-单例模式</h1><div class="post-info">Oct 27, 2017</div><div class="post-content"><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="" />
+  
+  <title>设计模式读书笔记-单例模式</title>
+  <meta name="author" content="Sweeney Di">
+  <meta name="description" content="定义
+单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。
+
+适用场景
+系统只需要一个实例对象。例如，系统要求提供一个唯一的序列号生成器或者资源管理器，或者需要考虑资源消耗太大只允许创建一个状态（Windows进程管理器无论点击多少次">
+  
+  
+  <meta property="og:title" content="设计模式读书笔记-单例模式"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Sweeney Di&#39;s Blog"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Sweeney Di&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;I want to put a ding in the universe
+      </div>
+    </div>
+    <div class="container">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        设计模式读书笔记-单例模式
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2017-10-26T16:00:00.000Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2017-10-27
+</time>
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/categories/Java/">Java</a>
+
+
+
+
+
+    </div>
+    <hr>
+    <div class="picture-container">
+      
+    </div>
+    <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
 <p>单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。</p>
 </blockquote>
-<a id="more"></a>
 <h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ol>
 <li>系统只需要一个实例对象。例如，系统要求提供一个唯一的序列号生成器或者资源管理器，或者需要考虑资源消耗太大只允许创建一个状态（Windows进程管理器无论点击多少次始终只能弹出一个窗口，因为如果多个窗口弹出意味着在某一瞬间系统资源使用情况和进程，服务等信息存在多个状态）。</li>
 <li>客户端调用类的单个实例只允许一个公共访问类。</li>
@@ -36,7 +120,17 @@
 <p>答案是不行。</p>
 <p><strong>如果使用第一种方法来创建单例对象,还是会存在单例对象不唯一。</strong></p>
 <p>因为假如A线程和B线程在同一时间调用getInstance()方法，此时均为null值，均能通过<code>single == nulli</code>判断。此时A线程进入synchronized锁定的代码模块执行实例创建，B线程处于排队等待状态，必须等待A线程执行完才能进入synchronized锁定代码模块。但当A线程执行完毕后，B线程并不知道实例已经创建，会再次创建实例导致产生多个实例对象，依然无法保证唯一的单例对象，因此需要再加入一层判断，这种方式称为「<strong>双重检查锁定（Double-Check Locking)</strong> 」</p>
-<p>被修饰符volatile修饰的成员变量可以确保多个线程能够正确处理，但同时volatile关键字会屏蔽JVM所做的一些代码优化，可能会导致系统运行效率降低。</p>
+<hr>
+<p>但是在JDK1.5之前依然存在DCL失效问题。</p>
+<p><code>single = new Singleton()</code>语句，这里看起来是一段代码，但实际上它并不是一个原子操作，这句代码最终会被编译成多条汇编指令，大致做了3件事情：</p>
+<ol>
+<li>给Singleton的实例分配内存</li>
+<li>调用Singletion()的构造函数，初始化成员字段</li>
+<li>将single对象指向分配的内存空间（此时single就不是null了）</li>
+</ol>
+<hr>
+<p><strong>但是，由于Java编译器允许处理器乱序执行，以及JDK1.5之前JVM中Cache，寄存器到主内存回写顺序的规定，上面的第二和第三的顺序是无法保证的。也就是说，执行顺序有可能是1-2-3，也有可能是1-3-2。如果是后者，并在3执行完毕、2未执行之前，被切换到B线程，这时候single因为已经在线程A内执行过了第三点，single已经是非空了，所以，线程B直接取走single，再使用就会出错，这就是DCL失效问题</strong></p>
+<p>在JDK1.5之后，官方注意到这种问题，调整了JVM，具体化了volatile关键字，因此在1.5之后的版本，将single的定义为<code>private volatile static Singleton single = null</code>就可以保证single对象每次都是从主存中读取，但同时volatile关键字会屏蔽JVM所做的一些代码优化，可能会导致系统运行效率降低。</p>
 <h2 id="Bill-Pugh-Singleton"><a href="#Bill-Pugh-Singleton" class="headerlink" title="Bill Pugh Singleton"></a>Bill Pugh Singleton</h2><blockquote>
 <p>Prior to Java 5, java memory model had a lot of issues and above approaches used to fail in certain scenarios where too many threads try to get the instance of the Singleton class simultaneously. So Bill Pugh came up with a different approach to create the Singleton class using a inner static helper class. The Bill Pugh Singleton implementation goes like this;</p>
 </blockquote>
@@ -51,20 +145,26 @@
 <p>首先需要明确的是当getInstance()调用时才会加载SingletonHelper类，<br>而加载SingletonHelper类时会执行<code>private final static Singleton instance = new Singleton();</code>生成Singleton实例</p>
 <p>简单来说，假如当两个线程尝试去初始化<code>getInstance()</code>时，就会去加载SingletonHepler类，这时需要LC锁的第一个线程才是实际上去初始化<code>getInstance()</code>的线程能加载SingletonHelper类的线程，因为<code>instance</code>是静态初始化，Java保证它只能被初始化一次。而当其他线程再进入<code>getInstance()</code>时，系统加载执行早已结束，保证了线程安全。</p>
 <p>贴上两个摘要便于理解</p>
-<p>Java Concurrency in Practice</p>
+<ul>
+<li><p><strong>Java Concurrency in Practice</strong></p>
 <blockquote>
 <p>The lazy initialization holder class idiom uses a class whose only purpose is to initialize the Resource. The JVM defers initializing the ResourceHolder class until it is actually used [JLS 12.4.1], and because the Resource is initialized with a static initializer, no additional synchronization is needed. The first call to getresource by any thread causes ResourceHolder to be loaded and initialized, at which time the initialization of the Resource happens through the static initializer.</p>
 </blockquote>
-<p>Static initialization</p>
+</li>
+<li><p><strong>Static initialization</strong></p>
 <blockquote>
 <p>Static initializers are run by the JVM at class initialization time, after class loading but before the class is used by any thread. Because the JVM acquires a lock during initialization [JLS 12.4.2] and this lock is acquired by each thread at least once to ensure that the class has been loaded, memory writes made during static initialization are automatically visible to all threads. Thus statically initialized objects require no explicit synchronization either during construction or when being referenced.</p>
 </blockquote>
+</li>
+</ul>
 <h2 id="枚举单例"><a href="#枚举单例" class="headerlink" title="枚举单例"></a>枚举单例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton&#123;</div><div class="line">  INSTANCE;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Sinlgeton</span><span class="params">()</span></span>&#123;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doWorks</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//do something here</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//If you then added another class with a main() method like</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">  Sinlgeton.INSTANCE.doWorks();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>首先要明确的是枚举是一种特殊的类</p>
 <p>因此上文的枚举声明实际上可以类比为这样</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> Singleton INSATNCE = <span class="keyword">new</span> Singleton();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>当首次去调用INSTANCE时，Singleton类会被JVM加载并初始化，同时初始化静态变量的过程只发生一次，实现了延迟加载（lazily）。</p>
-<p>其次枚举单例能够自行处理序列化，传统的单例一旦实现序列化接口将不能保证实例的唯一性，因为readObject()方法总是能像构造器那样返回一个新的实例。</p>
+<p>其次枚举单例能够自行处理序列化，传统的单例一旦实现序列化接口将不能保证实例的唯一性，因为readObject()方法总是能像构造器那样返回一个新的实例。但是可以通过readResolve()方法避免这种情况发生。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//readResolve to prevent another instance of Singleton</span></div><div class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="keyword">return</span> INSTANCE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但实际上会更复杂运用在自己的单例类里，但是使用枚举类型，JVM来保证序列化。</p>
 <p>最后就是创建枚举实例默认是线程安全的（恩不需要解释就是默认）以及简单易写相比于上面几种单例。</p>
 <h2 id="VS"><a href="#VS" class="headerlink" title="VS"></a>VS</h2><table>
 <thead>
@@ -108,5 +208,68 @@
 <li>如今很多面向对象语言都提供自动垃圾回收技术，如果实例化的共享对象长时间不被利用，系统会认为它是垃圾，会自动销毁回收资源，下次利用时需要重新实例化。</li>
 </ol>
 <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><p>留个volatile的坑后面来填~</p>
-<p>相关链接：<br><a href="https://stackoverflow.com/questions/46542017/java-singleton-with-an-inner-class-what-guarantees-thread-safety/46542569" target="_blank" rel="external">Java Singleton with an inner class - what guarantees thread safety?</a><br><a href="https://stackoverflow.com/questions/26285520/implementing-singleton-with-an-enum-in-java" target="_blank" rel="external">Implementing Singleton with an Enum</a><br><a href="https://stackoverflow.com/questions/2423622/volatile-vs-static-in-java" target="_blank" rel="external">Volatile Vs Static</a><br><a href="http://tutorials.jenkov.com/java-concurrency/volatile.html" target="_blank" rel="external">Java Volatile Keyword</a></p>
-</div></article></div></main><footer><div class="paginator"><a href="/2017/11/03/RxJava 2.x/" class="prev">PREV</a><a href="/2017/05/14/Fragment-1/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2017 <a href="https://github.com/December1900/December1900.github.io.git">Sweeney Di</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<h1 id="相关链接："><a href="#相关链接：" class="headerlink" title="相关链接："></a>相关链接：</h1><p><a href="https://stackoverflow.com/questions/46542017/java-singleton-with-an-inner-class-what-guarantees-thread-safety/46542569" target="_blank" rel="external">Java Singleton with an inner class - what guarantees thread safety?</a></p>
+<p><a href="https://stackoverflow.com/questions/26285520/implementing-singleton-with-an-enum-in-java" target="_blank" rel="external">Implementing Singleton with an Enum</a></p>
+<p><a href="https://stackoverflow.com/questions/2423622/volatile-vs-static-in-java" target="_blank" rel="external">Volatile Vs Static</a></p>
+<p><a href="http://tutorials.jenkov.com/java-concurrency/volatile.html" target="_blank" rel="external">Java Volatile Keyword</a></p>
+
+
+  </article>
+  </script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot container">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © Sweeney Di 2015-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>
