@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://github.com/December1900/December1900.github.io.git/2017/12/03/Builder%20Pattern%20Note/</loc>
+    <loc>https://github.com/December1900/December1900.github.io.git/2017/10/27/Sinlgeton%20Pattern%20Note/</loc>
     
-    <lastmod>2018-01-01T09:04:20.592Z</lastmod>
+    <lastmod>2018-01-03T09:28:09.771Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://github.com/December1900/December1900.github.io.git/2017/12/03/Builder%20Pattern%20Note%20copy/</loc>
+    <loc>https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile%20Keyword/</loc>
+    
+    <lastmod>2018-01-03T09:26:51.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://github.com/December1900/December1900.github.io.git/2017/12/03/Builder%20Pattern%20Note/</loc>
     
     <lastmod>2018-01-01T09:04:20.592Z</lastmod>
     
@@ -54,13 +61,6 @@
     <loc>https://github.com/December1900/December1900.github.io.git/2015/11/13/%E6%89%8B%E6%9C%BA%E5%B1%8F%E5%B9%95%E5%B9%BF%E8%89%B2%E5%9F%9F%E7%9A%84%E7%A7%91%E6%99%AE/</loc>
     
     <lastmod>2017-12-01T12:41:20.422Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://github.com/December1900/December1900.github.io.git/2017/10/27/Sinlgeton%20Pattern%20Note/</loc>
-    
-    <lastmod>2017-12-01T12:40:48.293Z</lastmod>
     
   </url>
   

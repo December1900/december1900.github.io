@@ -45,7 +45,7 @@
 </ol>
 <hr>
 <p><strong>但是，由于Java编译器允许处理器乱序执行，以及JDK1.5之前JVM中Cache，寄存器到主内存回写顺序的规定，上面的第二和第三的顺序是无法保证的。也就是说，执行顺序有可能是1-2-3，也有可能是1-3-2。如果是后者，并在3执行完毕、2未执行之前，被切换到B线程，这时候single因为已经在线程A内执行过了第三点，single已经是非空了，所以，线程B直接取走single，再使用就会出错，这就是DCL失效问题</strong></p>
-<p>在JDK1.5之后，官方注意到这种问题，调整了JVM，具体化了volatile关键字，因此在1.5之后的版本，将single的定义为<code>private volatile static Singleton single = null</code>就可以保证single对象每次都是从主存中读取，但同时volatile关键字会屏蔽JVM所做的一些代码优化，可能会导致系统运行效率降低。</p>
+<p>在JDK1.5之后，官方注意到这种问题，调整了JVM，具体化了volatile关键字，因此在1.5之后的版本，将single的定义为<code>private volatile static Singleton single = null</code>就可以保证single对象每次都是从主存中读取，禁止指令重排序优化，但同时volatile关键字会屏蔽JVM所做的一些代码优化，可能会导致系统运行效率降低。</p>
 <h2 id="Bill-Pugh-Singleton"><a href="#Bill-Pugh-Singleton" class="headerlink" title="Bill Pugh Singleton"></a>Bill Pugh Singleton</h2><blockquote>
 <p>Prior to Java 5, java memory model had a lot of issues and above approaches used to fail in certain scenarios where too many threads try to get the instance of the Singleton class simultaneously. So Bill Pugh came up with a different approach to create the Singleton class using a inner static helper class. The Bill Pugh Singleton implementation goes like this;</p>
 </blockquote>
