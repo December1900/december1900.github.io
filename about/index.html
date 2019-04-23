@@ -22,7 +22,7 @@
     <meta name="description" content="I took the one less traveled by and that has made all the difference">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>volatile关键字详解 · sweeneydi&#39;s Blog</title>
+    <title>sweeneydi&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="post-body">
+        <body class="about-body">
     
     
 <header class="header">
@@ -211,15 +211,6 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >sweeneydi&#39;s Journey.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">volatile关键字详解</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>sweeneydi's Journey.</a>
 </header>
@@ -232,67 +223,29 @@
 
 
 
-height:50vh;
+height:60vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/about-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            volatile关键字详解
-            <!-- 404 -->
+            About
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2k</span>Reading time: <span class="post-count reading-time">7 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2017/12/15</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -393,98 +346,15 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
+            <!-- 不可以删除，否则会调用post的layout  -->
+<main class="main about-page">
     <article class="article-entry">
-        <p>在正式开始volatile板块之间，先从Java内存模型说起。<a id="more"></a></p>
-<h1 id="Java内存模型的简单概念和规则"><a href="#Java内存模型的简单概念和规则" class="headerlink" title="Java内存模型的简单概念和规则"></a>Java内存模型的简单概念和规则</h1><p>Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。</p>
-<p>简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（Cache）来作为内存与处理器之间的缓冲。</p>
-<p>而在Java内存模型规定了所有的变量都存储在主内存中。每条线程还有自己的工作内存，类比于处理器高速缓存，线程的操作都必须在工作内存中进行，它们只能访问自己的工作内存，且工作前后都要把值再同步回主内存。</p>
-<p>三者关系如下：<br><img src="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png" alt=""></p>
-<p>如果要把一个变量从主内存复制到工作内存，那就要顺序地执行read和load操作，如果要把变量从工作内存同步会主内存，就要顺序执行store和write操作。</p>
-<p><strong>注意：Java内存模型只要求上述两个操作必须按顺序执行，而没有保证是连续执行。也就是说，read和load之间，store和write之间是可插入其他指令的。</strong></p>
-<h1 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h1><p>被volatile修饰的共享变量，具有以下两点特性：</p>
-<ol>
-<li>保证此变量对所有线程的可见性</li>
-<li>禁止指令重排序优化</li>
-</ol>
-<p>什么是可见性？什么又是指令重排序？</p>
-<p>这又得回归Java内存模型来接着讨论。</p>
-<h2 id="Java内存模型的特征"><a href="#Java内存模型的特征" class="headerlink" title="Java内存模型的特征"></a>Java内存模型的特征</h2><p>JMM是围绕着在并发过程中如何处理<strong>原子性</strong>、<strong>可见性</strong>和<strong>有序性</strong>这3个特征来建立的。</p>
-<p><strong>1. 原子性（Atomicity）</strong>：</p>
-<p>我们大致可以认为基本数据类型的访问读写是具有原子性的，同时为了满足更大范围的原子性保证，Java内存模型还提供了lock和unlock操作来满足这种需求，尽管虚拟机未把lock和unlock操作直接开放给用户使用，但是提供了更高层次的字节码指令<code>monitorenter</code>和<code>monitorexit</code>来隐式地使用这两个操作，这两个字节码指令反映到Java代码中就是同步代码—<code>synchronized</code>关键字，因此在<code>synchronized</code>块之间的操作也具备原子性。</p>
-<p><strong>2. 可见性（Visibility）</strong>：</p>
-<p>可见性是指当一个线程修改了共享变量的值，其他线程能够给立即得到这个修改。普通变量和<code>volatile</code>变量的区别是，<code>volatile</code>的特殊规则保证了新值能立即同步到内主存，以及每次使用前立即从主内存刷新。因此，可以说<code>volatile</code>保证了多线程操作时变量的可见性，而普通变量则不能保证这一点。</p>
-<p>除了volatile之外，Java还有两个关键字能还是实现可见性，即<code>synchronizd</code>和<code>final</code>。同步块的可见性是由“对一个变量执行unlock操作之前，必须先把此变量同步回主内存中”这条规则获得的，而<code>final</code>关键字的可见性是指：被<code>final</code>修饰的字段在构造器中一旦初始化完成，并且构造器没有把<code>this</code>的引用传递出去，那在其他线程中就能看见final字段的值。</p>
-<p>在谈论<strong>有序性</strong>之前，先回到volatile的第二个特性。</p>
-<hr>
-<h2 id="禁止指令重排序优化"><a href="#禁止指令重排序优化" class="headerlink" title="禁止指令重排序优化"></a>禁止指令重排序优化</h2><p>普通的变量仅仅会保证在该方法的执行过程中所有依赖赋值结果的地方都能获得到正确结果，而不能保证变量赋值操作的顺序与程序代码中的执行顺序一致。因为一个线程的方法执行过程中无法感知到这点，这也就是Java内存模型中描述的所谓的“线程内表现为串行的语义”（as-if-serial）。</p>
-<p>来看看底层实现机制。</p>
-<p>如果把加入volatile关键字的代码和未加入volatile关键字的代码都生成汇编代码，会发现加入volatile关键字的代码会多出一个lock前缀指令。</p>
-<p>这个操作相当于一个<strong><code>内存屏障</code></strong>，指重排序时不能把后面的指令重排序到内存屏障之前的位置。</p>
-<p>那为何说它禁止指令重排序呢？从硬件架构上讲，指令重排序是指CPU采用了允许将多条指令不按程序规定的顺序分开发送给各相应电路单元处理。但并不是说指令任意重排，CPU依然需要正确处理得出正确的执行结果。所以在本CPU内，重排序看起来依然是有序的。因此，lock指令把修改同步到内存时，意味着所有之前的操作都已经执行完了，这样便形成了“指令重排序无法越过内存屏障”的效果。</p>
-<hr>
-<p><strong>3. 有序性（Ordering）</strong>：</p>
-<p>Java程序中天然的有序性可以总结为一句话：如果在本线程内观察，所有的操作都是有序的；如果在一个线程中观察另一个线程，所有的操作都是无序的。前半句是指“线程内表现为串行的语义（as-if-serial）”，后半句是指“指令重排序”和“工作内存与主内存同步延迟”现象。</p>
-<p>Java语言提供了<code>volatile</code>和<code>synchronized</code>两个关键字来保证线程之间操作的有序性，<code>volatile</code>关键字本身就包含了禁止指令重排序的语义，而<code>synchronized</code>则是由“一个变量在同一个时刻只允许一条线程对其进行lock操作”这条规则获得的。</p>
-<h3 id="先行发生原则"><a href="#先行发生原则" class="headerlink" title="先行发生原则"></a>先行发生原则</h3><p>同时JMM具备一些先天的有序性,这些先行发生关系无须任何同步器协助就已经存在，可以直接在编码中直接使用，称为<strong><code>happens-before</code></strong>原则。</p>
-<p>如果两个操作之间的关系不在此列，并且无法从下列规则推导出来的话，它们就没有顺序性保障，JVM可以对它们随意进行重排序。</p>
-<ul>
-<li><strong>程序次序规则</strong>：在一个线程内，按照程序代码顺序，书写在前面的操作先行发生于书写在后面的操作。</li>
-<li><strong>管程锁定规则</strong>：一个unlock操作先行发生于后面<strong>同一个锁</strong>的lock操作。</li>
-<li><strong>volatile变量规则</strong>：对一个volatile变量的写操作先行发生于后面对这个变量的读操作。</li>
-<li><strong>线程启动规则</strong>：Thread对象的start()方法先行发生于此线程的每一个动作。</li>
-<li><strong>线程终止规则</strong>：线程中的所有操作都先行于对此线程的终止操作。</li>
-<li><strong>线程中断规则</strong>：对线程interrupt()方法的调用先行发生于被中断线程代码检测到中断事件的发生，可以通过Thread.interrupted()方法检测是否有中断发生。</li>
-<li><strong>对象终结规则</strong>：一个对象的初始化完成先行发生于它的finalize()方法。</li>
-<li><strong>传递规则</strong>：如果操作A先行发生于操作B，操作B先行发生于操作C，则操作A先行发生于操作C。</li>
-</ul>
-<h1 id="volatile的使用场景"><a href="#volatile的使用场景" class="headerlink" title="volatile的使用场景"></a>volatile的使用场景</h1><p>除了状态量标记外，使用最多的则是单例的DCL实现。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">volatile</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">synchronized</span>(Singleton.class)&#123;</div><div class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</div><div class="line">          instance = <span class="keyword">new</span> Singleton();</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>为了避免初始化操作的指令重排序，使用volatile修饰instance。</p>
-<p>关于单例模式的解读，<a href="https://december1900.github.io/2017/10/27/Sinlgeton%20Pattern%20Note/" target="_blank" rel="external">移步这里</a>。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>深入理解JVM第十二章</p>
-<p><a href="http://tutorials.jenkov.com/java-concurrency/volatile.html" target="_blank" rel="external">Java volatile keyword</a></p>
-<p><a href="https://juejin.im/post/5a2b53b7f265da432a7b821c" target="_blank" rel="external">面试官最爱的volatile关键字</a></p>
+        <p>App Developer <a href="https://ccnubox.muxixyz.com" target="_blank" rel="external">@CCNUBox</a></p>
+<p>Android Developer <a href="http://www.muxixyz.com" target="_blank" rel="external">@Muxi-Studio</a></p>
+<p>Major in Software Engineering</p>
+<p>Undergraduate from CCNU, Wuhan</p>
 
     </article>
-    <!-- license  -->
-    
-        <div class="license-wrapper">
-            <p>Author：<a href="https://github.com/December1900/December1900.github.io.git">Sweeney Di</a>
-            <p>原文链接：<a href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/">https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/</a>
-            <p>发表日期：<a href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/">December 15th 2017, 12:00:00 am</a>
-            <p>更新日期：<a href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/">January 3rd 2018, 5:33:18 pm</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
-        </div>
-    
-    <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2017/12/03/Builder Pattern Note/" title= "设计模式读书笔记-建造者模式">
-                    <div class="prevTitle">设计模式读书笔记-建造者模式</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
-    
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -566,24 +436,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java内存模型的简单概念和规则"><span class="toc-number">1.</span> <span class="toc-text">Java内存模型的简单概念和规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#volatile关键字"><span class="toc-number">2.</span> <span class="toc-text">volatile关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java内存模型的特征"><span class="toc-number">2.1.</span> <span class="toc-text">Java内存模型的特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止指令重排序优化"><span class="toc-number">2.2.</span> <span class="toc-text">禁止指令重排序优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先行发生原则"><span class="toc-number">2.2.1.</span> <span class="toc-text">先行发生原则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#volatile的使用场景"><span class="toc-number">3.</span> <span class="toc-text">volatile的使用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -977,8 +829,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
