@@ -12,23 +12,25 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Talk is cheap.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="sweeneydi&#39;s Blog">
+<meta property="og:title" content="Sweeney Di&#39;s Blog">
 <meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/page/2/index.html">
-<meta property="og:site_name" content="sweeneydi&#39;s Blog">
+<meta property="og:site_name" content="Sweeney Di&#39;s Blog">
 <meta property="og:description" content="Talk is cheap.">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sweeneydi&#39;s Blog">
+<meta name="twitter:title" content="Sweeney Di&#39;s Blog">
 <meta name="twitter:description" content="Talk is cheap.">
 
 <link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/page/2/">
@@ -43,7 +45,7 @@
   };
 </script>
 
-  <title>sweeneydi's Blog</title>
+  <title>Sweeney Di's Blog</title>
   
 
 
@@ -74,7 +76,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="sweeneydi's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Sweeney Di's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -96,7 +98,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">sweeneydi's Blog</span>
+        <span class="site-title">Sweeney Di's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -117,19 +119,24 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
   </ul>
@@ -143,6 +150,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -167,7 +175,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -189,7 +197,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:55:12" itemprop="dateModified" datetime="2019-04-23T15:55:12+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:15:44" itemprop="dateModified" datetime="2020-02-25T15:15:44+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,36 +220,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>写在前面:<br>近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配，iPhone额…Apple反正是一直掖着藏着当然是用iPad充电器也可以大幅提高速度（相对iPhone而言）</p>
-<hr>
-<h1 id="快充技术原理"><a href="#快充技术原理" class="headerlink" title="快充技术原理"></a>快充技术原理</h1><p>如果初中上语文课有认真听讲的话一定记得下面的这个公式:<br>    P「电功率」＝ U「电压」X I「电流」<br>这样自然提升功率的无异两种方法，要么提升电压，要么加大电流.我们通常把大于5V的电压称为高电压，大于1.5A的电流称为高电流.</p>
-<p>目前采用高电压方案的厂家有高通，苹果，联发科，德州仪器.<br>而采用高电流方案的厂家主要是OPPO.</p>
-<h1 id="三大主流快充方案"><a href="#三大主流快充方案" class="headerlink" title="三大主流快充方案"></a>三大主流快充方案</h1><h2 id="高通-「QC」-Quick-Charge-技术"><a href="#高通-「QC」-Quick-Charge-技术" class="headerlink" title="高通 「QC」(Quick Charge)技术"></a><strong>高通 「QC」(Quick Charge)技术</strong></h2><p>QC的原理是通过USB端口的D+与D-的不同电压给合，来向充电器申请相应的输出电压供手机充电。快充的充电器与手机通过USB接口中间两线（D+D-）上加载电压来进行通讯，调节QC的输出电压，达到所需要的高电压。但是如果当充电器的调压档跨度比较大，手机端充电路效率偏低.</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/QC3.0.gif" alt="QC3.0"></p>
-<p>最新发布的<strong>QC3.0</strong>更合理高效:</p>
-<blockquote>
-<p>Quick Charge 3.0 employs Intelligent Negotiation for Optimum Voltage (INOV), an algorithm which allows your portable device to determine what power level to request at any point in time, enabling optimum power transfer while maximizing efficiency. It also supports wider voltage options, allowing a mobile device to dynamically adjust to the ideal voltage level supported by that specific device. Specifically, Quick Charge 3.0 offers a more granular range of voltages: 200mV increments, from 3.6V to 20V. That way your phone can target one of dozens of power levels.</p>
-</blockquote>
-<p>简而言之就是Quick Charge 3.0再采用最佳电压智能协商（INOV）算法后，支持更细化的电压选择：以200mV增量为一档，提供从3.6V到20V电压的灵活选择。这样，你的手机可以从数十种功率水平中选择最适合的一档。</p>
-<h2 id="联发科-「Pump-Express-Plus」技术"><a href="#联发科-「Pump-Express-Plus」技术" class="headerlink" title="联发科 「Pump Express Plus」技术"></a><strong>联发科 「Pump Express Plus」技术</strong></h2><p>Pump Express是通过USB端口的VBUS来向充电器通讯并申请相应的输出电压的。QC是通过配置D+和D-电压的方式来通讯，Pump Express则是通过VBUS上的电流脉冲来通讯.但是和前代QC一样当充电器的调压档跨度比较大，带来手机端充电路效率偏低.</p>
-<p>Pump Express Plus技术与高通QC3.0类似，增加了调压档数，可以向充电器申请合适的电压，以达到电效率的最大化，每档200mV，受控电压为12V/9V/7V，功率在15W以上。而采用联发科-TI快充方案的魅族mcharge3.0更是达到恐怖的24W，足见联发科在快充方面不容小觑的实力。</p>
-<h2 id="德州仪器-TI-「MaxCharge」技术"><a href="#德州仪器-TI-「MaxCharge」技术" class="headerlink" title="德州仪器(TI) 「MaxCharge」技术"></a><strong>德州仪器(TI) 「MaxCharge」技术</strong></h2><p>TI MaxCharge快充技术集成了5A单节锂离子电池充电器电路，在电流高达5A的时候支持高达14V的输入电压。向下兼容高通QC的9V、12V两档电压，对联发科Pump Express Plus的7V、9V、12V支持也不在话下，联合TI自身的高性能充电管理做了一次整合。</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/TI-MaxCharge.jpg" alt="TI-MaxCharge"></p>
-<hr>
-<p><strong>上述的高电压方案都需要通过手机电源转换模块将交流电的「高电压，小电流」转换为直流电「低电压，大电流」，而此时会产生高频脉冲会影响元器件的工作和寿命，同时机身会发热严重。</strong><br><strong>那这么说就是说采用高电流方案会更合理喽，不妨接着往下看。</strong></p>
-<hr>
-<h2 id="OPPO-「VOOC」技术"><a href="#OPPO-「VOOC」技术" class="headerlink" title="OPPO 「VOOC」技术"></a><strong>OPPO 「VOOC」技术</strong></h2><p>VOOC技术（一加的「DASH技术」同理）的原理与上述不一样是采用的高电流方案，同事充电器和电池电路中都整合了智能控制芯片MCU来取代降压电路，智能控制充电的整个流程。</p>
-<p>采用高电流方案的OPPO确实不用担心电压转换问题，但同时难度也来了，在狭小的手机空间里，整条线路（数据线，USB，电池等等）都要改造禁得起起大电流的元器件，这样一来就需要专用充电器，7pin口的USB线，电池etc.</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/OPPO-VOOC.png" alt="OPPO-VOOC"></p>
-<p>也正因为这样充电控制电路移植到了适配器端，也就是将最大的发热源移植到了适配器。这样控制电路在适配器，而被充电的电池在手机端，充电时手机发热得以很好的解决，同时也保证了高效率。</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/VOOC.png" alt="VOOC"></p>
-<h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1><h2 id="「结尾」"><a href="#「结尾」" class="headerlink" title="「结尾」"></a>「结尾」</h2><p>不知道大家有没有仔细观察，快充是不能一直持续的，当电池容量达到90%后速度会明显放缓，其实这时已经是恒压充电了。电池好比一个气球，当前期气球比较小时，我们可以随意加速打气，但当气球大到一定程度时，承受能力也达到了临界值，那这时候就需要减小进气量，控制得当，防止爆炸，也就是我们所说的防溢出。<br>所以我们看到不管是哪种快充协议，都是前期爆发式充电，将效率最大化，而到了90%的电量后，则进入涓流充电，充电器与设备里的芯片协同工作，以控制进入电池的电流。</p>
-<hr>
-<h2 id="「吐槽」"><a href="#「吐槽」" class="headerlink" title="「吐槽」"></a>「吐槽」</h2><p>上面提到过电流大幅度增加势必造成Micro USB接口和数据线无法承受，所以OPPO是使用了7pin接口，相比于普通的USB接口5个接触点7pin有8个接触点，算是特别定制的，但是现在的USB Type C接口的触点数量数倍于Micro USB接口，这就使得它能承受的电流强度大大增加;同时TC加入了互相识别的步骤，可以把自己定义成充电器或者受电设备。换句话说Type C天然支持快充，同样的电流下Type C损失也会更小，而且可以支持双向充电。所以说使用了Type C而不支持快充的都是耍流氓，比如不将就的上旗舰（披着Type C的USB2.0）</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E4%B8%80%E5%8A%A02.jpeg" alt="一加2"></p>
-<hr>
-<h2 id="「尾巴」"><a href="#「尾巴」" class="headerlink" title="「尾巴」"></a>「尾巴」</h2><p>其实孰优孰劣本没有一个明显的划分，但即使高电压方案存在些许问题，由于高通，联发科，苹果这些上游芯片级厂商的号召力和影响力，加上高电压方案只需要一个充电器的高兼容性和方便性，高电压方案会是未来一段时间的主流。</p>
-
+          <p>近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/10/10/Android-QCharge/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -269,7 +256,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -291,7 +278,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 16:02:00" itemprop="dateModified" datetime="2019-04-23T16:02:00+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 18:42:24" itemprop="dateModified" datetime="2020-02-25T18:42:24+08:00">25 Feb 2020</time>
               </span>
 
           
@@ -305,27 +292,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h1><p><a href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>（apktool、dex2jar）、<a href="https://github.com/java-decompiler/jd-gui">jd-gui</a></p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png" alt="AndroidDecompiler"></p>
-<hr>
-<h1 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h1><h2 id="反编译AndroidManifest-xml和资源文件"><a href="#反编译AndroidManifest-xml和资源文件" class="headerlink" title="反编译AndroidManifest.xml和资源文件"></a>反编译AndroidManifest.xml和资源文件</h2><p>为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler目录下的dex2jar均copy到相应的目录下.</p>
-<p>再使用apktool反编译apk，可以获得AndroidManifest.xml和资源文件.</p>
-<blockquote>
-<p>$ apktool d app-release.apk</p>
-</blockquote>
-<p>执行完输出后，目录会新增一个app-release文件夹，里面有我们想要的res/和xml，到此资源文件已经反编译完成.</p>
-<h2 id="反编译java代码"><a href="#反编译java代码" class="headerlink" title="反编译java代码"></a>反编译java代码</h2><p>1.先解压.apk文件</p>
-<blockquote>
-<p>//解压app-release.apk到指定新建的app-release_source目录下<br>$ unzip app-release.apk -d app-release_source</p>
-</blockquote>
-<p>2.反编译.dex文件</p>
-<blockquote>
-<p>//在app-release_source目录下找到classes.dex并反编译为.class文件<br>$ sh dex2jar/d2j-dex2jar.sh app-release_source/classes.dex</p>
-</blockquote>
-<p>3.使用jd-gui打开第二步编译出的classes-dex2jar.jar文件</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91jd-gui.png" alt="jd-gui"></p>
-<p>OK此时各种变量已经被混淆，说明反编译成功</p>
-
+          <p>工具准备
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/09/29/Android-decompile/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -353,7 +328,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -375,7 +350,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:57:18" itemprop="dateModified" datetime="2019-04-23T15:57:18+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:09:33" itemprop="dateModified" datetime="2020-02-25T15:09:33+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -398,34 +373,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>写在前面:只调用微信分享一个接口就仿佛陷入了无底洞，在错误的泥潭里越陷越深，最开(dan)心(teng)的是网上文章各有各的套路，再就是错误问题有些解释的不太明了，当然这锅大部分得要微信自己来背，排版无力吐槽而且漏洞多还不太稳定。</p>
-<hr>
-<h1 id="配置和接入"><a href="#配置和接入" class="headerlink" title="配置和接入"></a>配置和接入</h1><ul>
-<li><p>前面配置按照官方文档一步步来就可以了，记住加上所需要的权限</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--微信权限--&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.INTERNET"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.ACCESS_NETWORK_STATE"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.ACCESS_WIFI_STATE"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.READ_PHONE_STATE"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注册发送请求到微信，并接入分享功能，以【<strong>链接分享</strong>】为例(其他分享格式参照官方文档)</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//APP_ID为微信注册成功显示的APP_ID</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String APP_ID = <span class="string">"wx888888888"</span>;</span><br><span class="line"><span class="keyword">private</span> IWXAPI api;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//transaction需要的类型</span></span><br><span class="line"><span class="keyword">private</span> String type = <span class="string">"webpage"</span>;</span><br><span class="line">  </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_web);</span><br><span class="line">    shareTOWeixin();</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shareTOWeixin</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//不太理解这里false和true有什么作用</span></span><br><span class="line">    api = WXAPIFactory.createWXAPI(getApplicationContext(), APP_ID, <span class="keyword">false</span>);</span><br><span class="line">    api.registerApp(APP_ID);</span><br><span class="line">    </span><br><span class="line">    WXWebpageObject webpage = <span class="keyword">new</span> WXWebpageObject();</span><br><span class="line">    webpage.webpageUrl = url;</span><br><span class="line">    WXMediaMessage msg = <span class="keyword">new</span> WXMediaMessage(webpage);</span><br><span class="line">    msg.title = title;</span><br><span class="line">    msg.description = intro;</span><br><span class="line">    Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, <span class="number">150</span>, <span class="number">150</span>, <span class="keyword">true</span>);</span><br><span class="line">    bmp.recycle();</span><br><span class="line">    msg.setThumbImage(bmp);</span><br><span class="line">    SendMessageToWX.Req req = <span class="keyword">new</span> SendMessageToWX.Req();</span><br><span class="line">    req.transaction = type + System.currentTimeMillis();</span><br><span class="line">    req.message = msg;</span><br><span class="line">    req.scene = SendMessageToWX.Req.WXSceneTimeline;</span><br><span class="line">    api.sendReq(req);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="跳坑-带泪的亲历"><a href="#跳坑-带泪的亲历" class="headerlink" title="跳坑(带泪的亲历)"></a>跳坑(带泪的亲历)</h1><ul>
-<li>一定要在你的包名根目录下创建wxapi包，然后在该包下创建activity命名为【<strong>WXEntryActivity</strong>】(写死不可更改)并实现IWXAPIEventHandler接口，不然怎么挂的都不知道</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXEntryActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">IWXAPIEventHandler</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String APP_ID = <span class="string">"wxf054659decf8f748"</span>;</span><br><span class="line">	<span class="keyword">private</span> IWXAPI api;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	</span><br><span class="line">	    api = WXAPIFactory.createWXAPI(<span class="keyword">this</span>, APP_ID,<span class="keyword">false</span>);</span><br><span class="line">	    api.registerApp(APP_ID);</span><br><span class="line">	    api.handleIntent(getIntent(),<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReq</span><span class="params">(BaseReq baseReq)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResp</span><span class="params">(BaseResp baseResp)</span> </span>&#123;</span><br><span class="line">	    String result = <span class="keyword">null</span>;</span><br><span class="line">	    <span class="keyword">switch</span> (baseResp.errCode)&#123;</span><br><span class="line">	        <span class="keyword">case</span> BaseResp.ErrCode.ERR_OK:</span><br><span class="line">	            result = <span class="string">"发送成功"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>,result,Toast.LENGTH_SHORT).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	</span><br><span class="line">	        <span class="keyword">case</span> BaseResp.ErrCode.ERR_USER_CANCEL:</span><br><span class="line">	            result = <span class="string">"发送失败"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>,result,Toast.LENGTH_SHORT).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	</span><br><span class="line">	        <span class="keyword">case</span> BaseResp.ErrCode.ERR_AUTH_DENIED:</span><br><span class="line">	            result = <span class="string">"发送被拒绝"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>, result, Toast.LENGTH_LONG).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	</span><br><span class="line">	        <span class="keyword">default</span>:</span><br><span class="line">	            result = <span class="string">"发送返回"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>, result, Toast.LENGTH_LONG).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">super</span>.onNewIntent(intent);</span><br><span class="line">	    setIntent(intent);</span><br><span class="line">	    api.handleIntent(intent, <span class="keyword">this</span>);</span><br><span class="line">	    finish();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="分享未成功"><a href="#分享未成功" class="headerlink" title="分享未成功"></a>分享未成功</h2><ul>
-<li><strong>调试(分享)功能时要打【app-release.apk】，并且要对照本地签名和微信服务器端签名是否一致</strong></li>
-</ul>
-<blockquote>
-<p>使用GenSignature获取release包的签名，并和服务器端的应用签名核对是否一致，若不一致，修改服务器端应用签名和本地签名一致，大概需要半天时间同步。</p>
-</blockquote>
-<ul>
-<li>若返回结果的为”发送返回”，极大可能是因为修改了appkey(签名)和储存在sharepreference中的access token不匹配，所以被分享平台拒绝。解决办法就是清空微信缓存或者重装微信应用，再或者换一部手机调试都是可行的。</li>
-</ul>
-
+          <p>写在前面:只调用微信分享一个接口就仿佛陷入了无底洞，在错误的泥潭里越陷越深，最开(dan)心(teng)的是网上文章各有各的套路，再就是错误问题有些解释的不太明了，当然这锅大部分得要微信自己来背，排版无力吐槽而且漏洞多还不太稳定。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/09/07/Android-shareWechat/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -453,7 +409,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -475,7 +431,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:57:34" itemprop="dateModified" datetime="2019-04-23T15:57:34+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:09:28" itemprop="dateModified" datetime="2020-02-25T15:09:28+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -498,60 +454,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>写在前面:</p>
-<p>不得不说信鸽推送真是坑超多，尤其官方文档跟没讲一样,心累整理详细流程(SDK 2.46)</p>
-<hr>
-<h1 id="配置和注册"><a href="#配置和注册" class="headerlink" title="配置和注册"></a>配置和注册</h1><p>  基本流程按照官方文档来，代码直接copy就可以了，不过需要注意几点.</p>
-<ul>
-<li><p><strong>使用AS要根据提示设置android:name=android.intent.action</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">"com.tencent.android.tpush.XGPushActivity"</span></span><br><span class="line">    android:exported=<span class="string">"true"</span>&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;!-- 若使用AndroidStudio，请设置android:name=<span class="string">"android.intent.action"</span>--&gt;</span><br><span class="line">        &lt;action android:name=<span class="string">"android.intent.action"</span>/&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>正确配置XGRemoteService，且intent-filter中是否正确设置</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;action android:name=<span class="string">"应用包名.PUSH_ACTION"</span> /&gt; 应用包名为当前APP包名</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>完成配置后，在工程的主activity(一般都是mainactivity)onCreate重载方法里添加如下代码</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Context context = getApplicationContext();</span><br><span class="line">          XGPushConfig.enableDebug(<span class="keyword">this</span>,<span class="keyword">true</span>);</span><br><span class="line">          XGPushConfig.getToken(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//为了方便获取注册是否成功的状态，使用带callback的版本</span></span><br><span class="line">		  XGPushManager.registerPush(context,<span class="string">"users"</span>,newXGIOperateCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span> <span class="params">(Object data,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">            Log.d(<span class="string">"TPush"</span>, <span class="string">"注册成功，设备token为："</span> + data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFail</span> <span class="params">(Object data,<span class="keyword">int</span> errCode, String msg)</span></span>&#123;</span><br><span class="line">            Log.d(<span class="string">"TPush"</span>, <span class="string">"注册失败，错误码："</span> + errCode + <span class="string">",错误信息："</span> + msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>正确输入自己的ACCESS ID和ACCESS KEY</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“<span class="number">21</span>”开头的<span class="number">10</span>位数字，中间没空格 --&gt;</span><br><span class="line">&lt;meta-data</span><br><span class="line">    android:name=<span class="string">"XG_V2_ACCESS_ID"</span></span><br><span class="line">    android:value=<span class="string">"21********"</span>/&gt;</span><br><span class="line">&lt;!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的<span class="number">12</span>位字符串，中间没空格 --&gt;</span><br><span class="line">&lt;meta-data</span><br><span class="line">    android:name=<span class="string">"XG_V2_ACCESS_KEY"</span></span><br><span class="line">    android:value=<span class="string">"A***********"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h1 id="跳坑-带泪的亲历"><a href="#跳坑-带泪的亲历" class="headerlink" title="跳坑(带泪的亲历)"></a>跳坑(带泪的亲历)</h1><p>如果觉得这么简单就完了，那真是too young too simple了，坑得一步步跳</p>
-<ul>
-<li><strong>按照指示将下载下来的libs中的so和jar集成到AS上的libs中去，其中V4包直接删掉因为没有谁不带support库的，然后要在build.gradle添加如下代码</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sourceSets &#123;</span><br><span class="line">		 main&#123;</span><br><span class="line">				 jniLibs.srcDirs=[<span class="string">'libs'</span>]&#125;</span><br><span class="line">		 &#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li><p><strong>编译时候出现无法找到so文件</strong></p>
-<ul>
-<li><p>第一是需要添加多个平台的so文件，只按照官方文档添加一个armeabi是肯定行不通的，因为每个品牌的手机需要的so文件是不一样的，如果做测试肯定需要每个平台的so文件来适配主流手机</p>
-<p> 拿我自己来说魅族手机需要添加armeabi，armeabi-v7，arm64-v8a<br> 但小米就只需要添加armeabi,armeabi-v7 </p>
-</li>
-<li><p>第二如果工程之前就添加了某些平台的so文件(比如andfix)，则需要把所有的so文件分平台「<strong>合并</strong>」否则也会找不到so文件</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>logcat显示XGRemotService无法认证显示</strong></p>
-<blockquote>
-<p><strong>这说明自己工程的id和推上信鸽的应用包名不一致，也就是信鸽显示的应用包名错误，需要重新提交应用保持一致</strong></p>
-</blockquote>
-</li>
-</ul>
-
+          <p>不得不说信鸽推送真是坑超多，尤其官方文档跟没讲一样,心累整理详细流程(SDK 2.46)
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/09/03/Android-xgpush/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -579,7 +490,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -601,7 +512,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:59:23" itemprop="dateModified" datetime="2019-04-23T15:59:23+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:08:32" itemprop="dateModified" datetime="2020-02-25T15:08:32+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -624,47 +535,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="ROM"><a href="#ROM" class="headerlink" title="ROM"></a>ROM</h2><p>  「<strong>如果你没有用过Flyme4.5及之后的版本,请不要随随便便称Flyme为bugme</strong>」</p>
-<p><img src="http://img.ithome.com/newsuploadfiles/2016/1/20160121_173019_133.png" alt="Flyme5"></p>
-<h2 id="Flyme"><a href="#Flyme" class="headerlink" title="Flyme"></a>Flyme</h2><p>   Flyme已经更新到5.1.3.0A新春特别版,我也很愉快的度过了这个春节.<br>   关于Flyme5想了半天,觉得还是官网的介绍概括的比较准确.<br>   &gt;这是一个更精致,更友好,更强大,更可靠的系统.</p>
-<p>   但是Flyme 5重构了很多交互逻辑让我有点不适应,有些也不太理解.此处要手动@杨颜了.</p>
-<h3 id="布局重构"><a href="#布局重构" class="headerlink" title="布局重构"></a>布局重构</h3><p>   Flyme 5借助mBack「轻触返回上一级菜单,按压放回主菜单」的功能优势,彻底移除底部分类导航,改为类似iOS的顶部分类导航,界面由工字型变为T字形,这也宣告着魅族彻底告别充满争议的「<strong>smartbar</strong>」.同时Flyme 5取消了有特点有个性的「<strong>侧边栏设计</strong>」,改用主流的列表和平铺设计.<br>   同时图标布局增加到五行,更好的运用大屏空间.并且加入图标批量管理功能,大大提高了桌面的管理效率.</p>
-<p><img src="http://pic.enorth.com.cn/003/009/410/00300941037_0070dde5.png" alt="Flyme5和Flyme4.5"><br><img src="http://pic.enorth.com.cn/003/009/410/00300941038_7b510d76.png" alt="Flyme5和Flyme4.5"><br><img src="http://pic.enorth.com.cn/003/009/410/00300941041_b618c6b7.png" alt="Flyme5和Flyme4.5"></p>
-<h3 id="色彩动画"><a href="#色彩动画" class="headerlink" title="色彩动画"></a>色彩动画</h3><p>   当时的侘寂美学已经逐渐被胭脂浓妆所替代,Flyme 5加入丰富的色彩,颜色之靓丽让我极其的不适应.同时添加大量的过渡动画和动画细节,使交互更加自然灵动.<br>   最具有代表性的就是卡片式多任务替代图标显示多任务.</p>
-<p><img src="http://pic.enorth.com.cn/003/009/410/00300941039_e85bc95f.png" alt="Flyme5和Flyme4.5"><br><img src="http://pic.enorth.com.cn/003/009/410/00300941043_b83c2977.png" alt="Flyme5和Flyme4.5"></p>
-<h3 id="资源整合"><a href="#资源整合" class="headerlink" title="资源整合"></a>资源整合</h3><p>   作为国内一线UI,Flyme的资源整合能力离MIUI虽然还有点差距.但是如今的魅族生态圈也在蓬勃发展,电话页新增黄页,Flyme云服务也相当完整.</p>
-<h3 id="创新规范"><a href="#创新规范" class="headerlink" title="创新规范"></a>创新规范</h3><p>   *「<strong>mBack+悬浮球+手势唤醒</strong>」使得MX5的单手操作异常优秀,甚至可以说在5.5寸的手机中一骑绝尘.</p>
-<ul>
-<li><p>新增分屏模式(可惜支持分屏的应用不太多),短信加入可视化菜单和卡片式短信.</p>
-</li>
-<li><p>全局通知模式(当有来电时，来电提醒会以一个更轻量的通知形式出现).也不知道和4.5版本的哪个更好,全局通知模式优点不用说了,不用很突兀地切换到拨号界面,但是由于显示在屏幕顶端且不支持下拉悬停,单手体验并不好.</p>
-</li>
-<li><p>新春特别版的红包助手让我抢了不少红包.</p>
-</li>
-</ul>
-<p><img src="http://pic.enorth.com.cn/003/009/410/00300941042_dac36470.png" alt="Flyme5和Flyme4.5"><br><img src="http://pic.enorth.com.cn/003/009/410/00300941044_028c622d.png" alt="Flyme5和Flyme4.5"></p>
-<h1 id="续航-amp-性能-amp-发热"><a href="#续航-amp-性能-amp-发热" class="headerlink" title="#续航&amp;性能&amp;发热"></a>#续航&amp;性能&amp;发热</h1><p>   MX5配备了 3150mAH电池|联发科Helio X10.<br>   由于GPU POWER VR G6200离一线旗舰有较大的差距,导致MX5在运行大型游戏和大型网游时,掉帧明显.即使开启高性能模式,体验依然不够优秀.但是其他游戏游刃有余,日常事务配合Flyme 5,流畅的不像魅族手机.</p>
-<p>   同样WIFI断流问题最终是落在了Helio X10这颗处理器上,联发科的高端之路啊.<br>   <a href="http://www.ithome.com/html/digi/203238.htm" target="_blank" rel="noopener">联发科旗舰芯片之殇：Helio X10 WiFi断流</a></p>
-<p>   续航大幅提升,Zealer五小时续航测试剩余36%,成绩不错.对我自己来说,轻度使用一天剩余40%左右,相当感人.</p>
-<p>   MX5支持快充技术,充满大概1时30分钟,考虑到电池容量和机身比例,速度也是很快的.也只有在充电时机身温度接近40度,平时的使用基本感受不到热度,可见功耗控制魅族提升的也不止一点半点.</p>
-<h1 id="我想和这个世界谈谈"><a href="#我想和这个世界谈谈" class="headerlink" title="#我想和这个世界谈谈"></a>#我想和这个世界谈谈</h1><p>   魅族在2015年快速崛起,整个一年五机连发,并形成了PRO,MX,魅蓝三大完整产品线.这其中当然离不开阿里的投资,有了钱手脚自然也就放得开了,同时也离不开魅族自己的文化积淀,厚积薄发,有了可以展示的平台手脚自然也就放得开了.<br>   2015年魅族从曾经others的占有率营造了市场前三的关注度,销售额也是「<strong>350%</strong>」增长,2015年对魅族来说注定是不平凡的一年.</p>
-<p>   但冷静下来分析,魅族也该担忧起来,销售额确实大幅增长,但80%都是魅蓝系列打下来的,魅族如今俨然成为性价比的又一代名词,后面的高端路怎么走又是一个大难题,就像Fview所说的做「好手机」不难,难的是「做好」手机.魅族也该尽快脱下自己性价比的帽子,去认真地「做好」手机.</p>
-<p>   联想到今年微博中各种撕B,毫不客气地说为了吸引眼球魅族甚至放弃了一些节操,也不顾自己小而美的形象了.</p>
-<p>   魅族已经不是以前的魅族了.<br>   为了大众的口味,放弃了煤油们引以为傲的小圆圈和侧边栏和种种;为了大众的口味,Flyme逐渐向原生安卓靠拢,规范设计;为了大众的口味,跟随潮流用上最先进的技术最艳丽的色彩.如今的魅族是大家的魅族.</p>
-<p>   魅族还是以前的魅族.<br>   无论外貌怎么改变,只要灵魂不变,就不会改变,我希望魅族依然是那个最有工匠精神的魅族,依然是那个想「做好」手机的魅族.</p>
-<p>   「为什么?」<br>   因为人们总是向往美好的事物.也希望MX6和PRO 6不要打我的脸.</p>
-<h1 id="尾巴"><a href="#尾巴" class="headerlink" title="#尾巴"></a>#尾巴</h1><p>   还记得之前黄老板对批评魅族之声的回应「<strong>不喜欢就滚</strong>」.</p>
-<p>   做产品可不能有如此不负责的态度,我想黄老板现在也意识到了这点.</p>
-<p>   但是产品的灵魂和图腾可不能忘了,「<strong>不喜欢就滚</strong>」应该是每代产品的烙印,每代产品独有的气质,是魅族的精神,应该是类似于一加的「<strong>不将就</strong>」.</p>
-<p>   尽自己最大努力去做好,不喜欢的不强求.</p>
-<p>   突然想到唠嗑的一句话「<strong>恨吧，用你的全部心思去恨吧。然而也有很多人深爱着我，理由却和恨我的人一样。</strong>」.</p>
-<p>   有多少人爱你,就有多少人恨你.</p>
-<p>   落到魅族头上其实就在小众清新的问题上,喜欢的人认为是侘寂美,讨厌的人认为是偏执难用.</p>
-<p>   不用说接下来的路肯定漫长且艰难,但</p>
-<p>   忘了初心,就丢了始终.</p>
-<p>   大家喜欢的是有<br>   「<strong>不喜欢就滚</strong>」精神的魅族.</p>
-<p>   <strong>利益相关</strong>:MX5,MX4,小米note,魅蓝note用户.</p>
-
+          <h2 id="ROM"><a href="#ROM" class="headerlink" title="ROM"></a>ROM</h2><p>  「<strong>如果你没有用过Flyme4.5及之后的版本,请不要随随便便称Flyme为bugme</strong>」
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/02/20/Meizu MX5-2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -692,7 +571,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -714,7 +593,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:58:55" itemprop="dateModified" datetime="2019-04-23T15:58:55+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:10:34" itemprop="dateModified" datetime="2020-02-25T15:10:34+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -738,36 +617,15 @@
 
       
           <hr>
-<p>  其实现在看来,MX5才是魅族真正变革的冒险者和领头者.</p>
-<p>  引用Apple的一句话: 「<strong>从这里开始.</strong>」</p>
-<p><img src="http://img1.mydrivers.com/img/20150910/b6603489a53f4b8496105da5ba88a1d5.jpg" alt="MX5-1">  </p>
-<h1 id="相貌"><a href="#相貌" class="headerlink" title="#相貌"></a>#相貌</h1><h2 id="包装设计"><a href="#包装设计" class="headerlink" title="包装设计"></a>包装设计</h2><p>  MX5的包装依旧是承袭了MX系列的经典书页式设计,给人以精装书的即视感,简单素雅.因为成本的限制,并没有赠品,由于支持快充功能,MX5的充电头比以往的MX系列要大一圈.个人还是蛮喜欢Flyme卡针,胖乎乎的很可爱.</p>
-<p><img src="http://image.tianjimedia.com/uploadImages/2015/182/57/JMPABBQQ20PO_2.jpg" alt="MX5-2"><br><img src="http://image.tianjimedia.com/uploadImages/2015/182/58/KTCGUWP5CJYW_3.jpg" alt="MX5-3"></p>
-<h2 id="外观设计"><a href="#外观设计" class="headerlink" title="外观设计"></a>外观设计</h2><ul>
-<li>整机写满了MX系列的设计语言,「素颜简单,小众侘寂」.思考了很久最终我还是用上了小众侘寂,虽然取消了个人非常喜欢的标志性「小圆圈」,而改用腰圆键,屏幕比例也从奇葩的15:9回归到大众的16:9,用上了大众的全金属,但是在安卓三大金刚键盛行以及机身同质化的今天,MX5依然称得上「小众侘寂」.</li>
-</ul>
-<p><img src="http://img.dgtle.com/portal/201507/14/170904uu8x8xptmtrv47xk.jpg!930px" alt="MX5-4"></p>
-<ul>
-<li>MX5这次的电源键+音量键手感不错,反馈适中,稍微有点松动.但是SIM卡槽松动不止一点半点,当然比魅蓝note上的突出且松动的卡槽要好上不少.这次魅族没有再采用汇顶科技的指纹方案,但是按键键程「<strong>短脆反馈差</strong>」.不得不说SIM卡槽和腰圆按键拉低了整机质感.</li>
-</ul>
-<p><img src="http://ww2.sinaimg.cn/large/68dbf9ebjw1etujkqt64jj21kw11xq86.jpg" alt="MX5-5"></p>
-<ul>
-<li>屏幕周边取消了MX4上的一片差评的「点胶悬挂技术」,转而采用类似iPhone5上的塑料包边.金属略高于屏幕,比较容易积灰.比较可惜的是前面板没有用上当下比较流行提升质感的2.5D玻璃.</li>
-</ul>
-<p><img src="http://www.hztalk.com/wp-content/uploads/2015/07/QQ%E5%9B%BE%E7%89%8720150712163050.jpg" alt="MX5-6"></p>
-<ul>
-<li>随着MX系列特有弧度的不断下降,整机更为平坦,配合着全金属,使MX5的重量只有「149g」.在5.5寸的手机中可谓相当轻薄,手感也是十分舒适.美中不足的是机身背部上下部分由于烤漆(塑料部分)比机身中部铝合金厚一些所有会有「割手感」.</li>
-</ul>
-<p><img src="http://upload.qudong.com/2015/1118/1447816832123.png" alt="MX5-7"></p>
-<h1 id="屏幕"><a href="#屏幕" class="headerlink" title="#屏幕"></a>#屏幕</h1><p>  这次MX5用的是一块5.5寸FHD的AMOLED,发布会上宣称达到100%NTSC色域.AMOLED的优点就不用多说了,显示黑色不发光啊,薄啊,色域广啊等等.但是大师兄三星有这么好心,呵呵.</p>
-<p>  MX5上的这块AMOLED最高亮度只有360nit,也就是说强光下你是看不清屏幕的.额对就是这样的,这样可以避免你走路玩手机 -_- ,不得不说确实是坑.</p>
-<p>  而且色温大概在6500-6900K,也就是我们所说的标准白,但是在喜欢「高冷的亚洲人」眼中还是太暖了,也就是太黄了.你自己使用可能不觉得,等你看过你朋友的手机你才会觉得雾草真「黄」!!!</p>
-<p>  三星为了保持自己的技术领先,肯定是不会把今年大受好评的AMOLED卖给魅族.知道真相的魅族还好开放了色温调整选项.在设置-「色温调整」中,每向右一格大概增加300K,两三格就差不多白了.</p>
-<p>  同时因为<a href="https://december1900.github.io/2016/02/19/%E6%89%8B%E6%9C%BA%E5%B1%8F%E5%B9%95%E5%B9%BF%E8%89%B2%E5%9F%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%A7%91%E6%99%AE/" target="_blank" rel="noopener">RGB PenTile排列</a>,MX5的像素密度实际上只有401*(sqrt(2/3)) = 327ppi,刚过乔老爷子的视网膜金线.</p>
-<p>  所以对屏幕要求高的用户,还是那句话. 「<strong>无2K,不A屏.</strong>」</p>
-<h1 id="相机"><a href="#相机" class="headerlink" title="#相机"></a>#相机</h1><p>  MX5这次依然沿用了MX4上的sensor IMX 220|新增6P镜头模组|双色温闪光灯|激光对焦.<br>  因为对相机的确没什么兴趣我就引用Zealer和Fview的结论:「白平衡不错,细节很清楚.白天的表现在2000元档很有竞争力,晚上噪点感人.」</p>
-<h2 id="激光对焦"><a href="#激光对焦" class="headerlink" title="激光对焦"></a>激光对焦</h2><p>  激光二极管发射激光,遇到障碍物反射回来被感光器件捕捉,计算出距离后提供给镜组,然后马达直接将镜组推到合焦的位置.<br>  所以MX5对焦速度很快,且准确率高.可惜最大对焦距离只有50cm,超过之后依然只能用反差对焦.</p>
-
+<p>  其实现在看来,MX5才是魅族真正变革的冒险者和领头者.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/02/19/Meizu MX5-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -795,7 +653,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -817,7 +675,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:59:59" itemprop="dateModified" datetime="2019-04-23T15:59:59+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:08:27" itemprop="dateModified" datetime="2020-02-25T15:08:27+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -840,39 +698,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>随着今年S6那块SuperAMOLED的大受好评以及最近坊间盛传”凤”7及之后将采用AMOLED屏幕,AMOLED以及广色域屏热度一下子似乎炒了起来。</p>
-<hr>
-<h1 id="什么是”色域”-为什么会有这么多的”色域”"><a href="#什么是”色域”-为什么会有这么多的”色域”" class="headerlink" title="什么是”色域”?为什么会有这么多的”色域”?"></a>什么是”色域”?为什么会有这么多的”色域”?</h1><p>色域就是指由颜色构成的某个完全的子集。而人类肉眼能看到的色彩空间其实这样定义的:</p>
-<blockquote>
-<p>1931,CIE(国际照明委员会)制订了一套CIE1931 RGB色彩系统,规定将700nm的红,546.1nm的绿以及435.8nm的蓝作为标准三原色以他们为基础构成三角形或多边形空间,囊括它们构成的各种补色就形成了下面这张图,这基本就是人眼所能看到的所有色彩了,这货的标准名称叫做”CIE1931-xy色度图”。</p>
-</blockquote>
-<p> <img src="http://img.ithome.com/newsuploadfiles/2016/1/20160127_172905_921.png" alt="CIE1931-xy色度图"></p>
-<p> 「<strong>色域越高及包含的颜色越丰富,越接近肉眼所见的真实色彩.</strong>」</p>
-<hr>
-<h1 id="sRGB-NTSC-Adobe-RBG色域是什么-之间有什么关系-广色域是什么"><a href="#sRGB-NTSC-Adobe-RBG色域是什么-之间有什么关系-广色域是什么" class="headerlink" title="sRGB,NTSC,Adobe RBG色域是什么?之间有什么关系?广色域是什么?"></a>sRGB,NTSC,Adobe RBG色域是什么?之间有什么关系?广色域是什么?</h1><p>简单来说[NTSC][1]色域就是美国国家电视委员会在1952年制定出来规范彩色电视显示的,而[sRBG][2]色域则是IEC和微软专门针对PC彩色显示器的,通俗叫做标准色彩空间。sRGB比NTSC色域所规定的范围要小不少,大概只有72%左右,但是72%的NTSC色域其实和sRGB并不重合,两者只是面积相当,覆盖的范围是不一样的。上张图便于理解。</p>
-<p> <img src="http://img.poco.cn/mypoco/myphoto/20070129/3238618520070129150902040.jpg" alt="三者关系"></p>
-<p>而随着摄影技术发展起来的Adobe RGB色域,大概涵盖约50%的肉眼可见色。因为相机的CCD和CMOS可采集到的色域已经远远超出了sRGB的范围,很多高端显示器也能做到更高色域。简而言之Adobe RGB是给高端和发烧友使用的。</p>
-<p>其实所谓的广色域反之超过72% NTSC色域的其他所有色域,但就国际标准而言,只有色域超过了92% NTSC才能算得上广色域屏幕，三星和LG的AMOLED基本都超过了100%的NTSC色域。</p>
-<hr>
-<h1 id="那么当广色域屏幕遇到sRGB内容是会发生什么-两者换过来又会怎样"><a href="#那么当广色域屏幕遇到sRGB内容是会发生什么-两者换过来又会怎样" class="headerlink" title="那么当广色域屏幕遇到sRGB内容是会发生什么?两者换过来又会怎样?"></a>那么当广色域屏幕遇到sRGB内容是会发生什么?两者换过来又会怎样?</h1><p>要知道的是,目前市面上的相机和扫描仪等色彩输入设备，显示器或投影仪等色彩输出设备，以及Windows和Mac OS等操作系统的默认色域都是sRGB，网页、游戏、程序等也通通都是基于sRGB建立的。</p>
-<p>首先sRGB和NTSC色域一样都是用CIE xy坐标体系表示的,也就是说显示最大某种颜色(例如红色)坐标的是一样的。上面也说过,NTSC色域下的最大某种颜色绝对是比sRGB下的最大某种颜色饱和度更高更艳丽。</p>
-<p>当手机图片获取器识别出图片中的某色坐标,也告诉了手机要显示出正确的某色坐标,但是屏幕本身却并不是基于sRGB色彩空间的,而是92%的NTSC,此时屏幕应该显示个稍弱的某色。但是屏幕无法知晓这种错误,直接简单粗暴显示出92% NTSC色域下的某色,自然也就过饱和了。</p>
-<p>「<strong>In a word,基于sRGB色域的内容在广色域屏幕上,会发生色域的放大,颜色会发生偏移,画面中的颜色饱和度都会相应提高。</strong>」</p>
-<p>而Adobe RGB色域下的图片看起来偏黯淡是因为Adobe RGB与NTSC相对比较接近,两者差异较小,因此实际显示在屏幕上的画面色彩更接近真实场景。</p>
-<p>所以这就是为什么在高色域屏幕(Super AMOLED)手机上看到的照片艳丽无比,但放到其他sRGB色域屏幕手机上(比如iPhone)和显示器上,照片已下载就会变得暗淡失色的原因。</p>
-<p>从上面来看,广色域屏幕是能够让基于sRGB色彩空间的内容看起来更加艳丽,但是却牺牲了画面本身的真实性,并且现在依然有很多使用sRGB手机和显示器的用户。「<strong>因此这就是为什么同样的朋友圈照片,每个人看到东西不一样,给出的评价也不一样了。</strong>」</p>
-<hr>
-<h1 id="屏幕子像素的排列方式"><a href="#屏幕子像素的排列方式" class="headerlink" title="屏幕子像素的排列方式"></a>屏幕子像素的排列方式</h1><p>屏幕子像素的排列方式一般分为两种,一种是标准RGB排列方式,另一种是RGB PenTile排列方式(也就是我们常说的P排)。</p>
-<h2 id="RGB排列"><a href="#RGB排列" class="headerlink" title="RGB排列"></a>RGB排列</h2><p>RGB排列是最标准的排列方式,它把一个方块形的像素,平均分成三等分,每一块赋予不同的颜色,这样就可以构成一个彩色像素。这也绝大多数液晶显示器以及<em>IPS</em>屏幕所采用的子像素排列方法。</p>
-<h2 id="PenTile排列"><a href="#PenTile排列" class="headerlink" title="PenTile排列"></a>PenTile排列</h2><p>PenTile排列其实是一种OLED屏幕的像素排列方式,现在采用PenTile排列的屏幕只要为三星的AMLOED和Super AMOLED(当然还有SONY,LG)。</p>
-<p>与标准RGB排列的像素点由红绿蓝三个子像素组成的不同,PenTile的单个像素点只有”红绿”或者”蓝绿”两个子像素点组成。我们知道只有三基色才能构成所有的颜色,所以实际显示图像时,PenTile的一个像素点会”借”用与其他相邻的像素点的另一种颜色来构成三基色。水平方向,每个像素和相邻的像素共享自己不具备的那种颜色的子像素,共同达到白色显示。</p>
-<p>追其根本,PenTile是一种通过相邻像素公用子像素的方式,减少子像素个数,从而达到以低分辨率去模拟高分辨率的效果。</p>
-<p>优点是屏幕的贴合层比用RGB排列IPS屏幕少,所以更艳丽,成本更低。</p>
-<p>缺点就不言而喻了。一旦要显示精细内容的时候,清晰度远不及RGB排列的IPS屏幕;</p>
-<p>「 <strong>而为了弥补色彩问题，所以在PenTile技术下显示色彩分割区的时候，分割线会产生两倍于实际像素点距的锯齿状纹路，也就是会产生锯齿状边缘。最后一点就是只要显示的内容不是白色，就会出现两倍于点距的网格状斑点。</strong> 」    </p>
-<p>「 <strong>所以说，RGB PenTile技术的显示屏必须需要拥有足够高的分辨率，才可以弥补由于会产生两倍点距纹理带来的视觉效果下降。</strong> 」</p>
-<p>也就是我们通常所说的,「<strong>无2K,不A屏.</strong>」</p>
-
+          <p>随着今年S6那块SuperAMOLED的大受好评以及最近坊间盛传”凤”7及之后将采用AMOLED屏幕,AMOLED以及广色域屏热度一下子似乎炒了起来。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/11/13/手机屏幕广色域的科普/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -962,11 +796,27 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/December1900" title="GitHub → https://github.com/December1900"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/december1900" title="Twitter → https://twitter.com/december1900" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
 
 
 
@@ -993,10 +843,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Sweeney Di</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.1
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -1037,6 +887,8 @@
 
 
 
+
+  
 
   
 

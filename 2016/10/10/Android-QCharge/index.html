@@ -12,30 +12,32 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="写在前面:近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配，iPhone额…Apple反正是一直掖着藏着当然是用iPad充电器也可以大幅提高速度（相对iPhone而言）  快充技术原理如果初中上语文课有认真听讲的话一定记得下面的这个公式:    P「电功率」＝ U「电压」X I「电流」这样自然提升功率的无异两种方法，要么提升电压，要么加大电流.我们通常把大于5">
+  <meta name="description" content="近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈快充技术">
 <meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2016/10/10/Android-QCharge/index.html">
-<meta property="og:site_name" content="sweeneydi&#39;s Blog">
-<meta property="og:description" content="写在前面:近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配，iPhone额…Apple反正是一直掖着藏着当然是用iPad充电器也可以大幅提高速度（相对iPhone而言）  快充技术原理如果初中上语文课有认真听讲的话一定记得下面的这个公式:    P「电功率」＝ U「电压」X I「电流」这样自然提升功率的无异两种方法，要么提升电压，要么加大电流.我们通常把大于5">
+<meta property="og:site_name" content="Sweeney Di&#39;s Blog">
+<meta property="og:description" content="近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/QC3.0.gif">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/TI-MaxCharge.jpg">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/OPPO-VOOC.png">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/VOOC.png">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/%E4%B8%80%E5%8A%A02.jpeg">
-<meta property="og:updated_time" content="2019-04-23T07:55:12.176Z">
+<meta property="og:updated_time" content="2020-02-25T07:15:44.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈快充技术">
-<meta name="twitter:description" content="写在前面:近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配，iPhone额…Apple反正是一直掖着藏着当然是用iPad充电器也可以大幅提高速度（相对iPhone而言）  快充技术原理如果初中上语文课有认真听讲的话一定记得下面的这个公式:    P「电功率」＝ U「电压」X I「电流」这样自然提升功率的无异两种方法，要么提升电压，要么加大电流.我们通常把大于5">
+<meta name="twitter:description" content="近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配">
 <meta name="twitter:image" content="http://oe90x7ww9.bkt.clouddn.com/QC3.0.gif">
 
 <link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2016/10/10/Android-QCharge/">
@@ -50,7 +52,7 @@
   };
 </script>
 
-  <title>浅谈快充技术 | sweeneydi's Blog</title>
+  <title>浅谈快充技术 | Sweeney Di's Blog</title>
   
 
 
@@ -81,7 +83,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="sweeneydi's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Sweeney Di's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -103,7 +105,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">sweeneydi's Blog</span>
+        <span class="site-title">Sweeney Di's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -124,19 +126,24 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
   </ul>
@@ -150,6 +157,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -174,7 +182,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -195,7 +203,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:55:12" itemprop="dateModified" datetime="2019-04-23T15:55:12+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:15:44" itemprop="dateModified" datetime="2020-02-25T15:15:44+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,7 +226,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>写在前面:<br>近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配，iPhone额…Apple反正是一直掖着藏着当然是用iPad充电器也可以大幅提高速度（相对iPhone而言）</p>
+        <p>近两年准确来说是去年上半年，对于Android阵营快充基本已经成为各大中高端机型的标配<a id="more"></a>，iPhone额…Apple反正是一直掖着藏着当然是用iPad充电器也可以大幅提高速度（相对iPhone而言）</p>
 <hr>
 <h1 id="快充技术原理"><a href="#快充技术原理" class="headerlink" title="快充技术原理"></a>快充技术原理</h1><p>如果初中上语文课有认真听讲的话一定记得下面的这个公式:<br>    P「电功率」＝ U「电压」X I「电流」<br>这样自然提升功率的无异两种方法，要么提升电压，要么加大电流.我们通常把大于5V的电压称为高电压，大于1.5A的电流称为高电流.</p>
 <p>目前采用高电压方案的厂家有高通，苹果，联发科，德州仪器.<br>而采用高电流方案的厂家主要是OPPO.</p>
@@ -347,11 +355,27 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/December1900" title="GitHub → https://github.com/December1900"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/december1900" title="Twitter → https://twitter.com/december1900" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
 
 
 
@@ -378,10 +402,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Sweeney Di</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.1
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -422,6 +446,8 @@
 
 
 
+
+  
 
   
 

@@ -12,27 +12,30 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="工具准备AndroidDecompiler（apktool、dex2jar）、jd-gui   反编译反编译AndroidManifest.xml和资源文件为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler">
+  <meta name="description" content="工具准备">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac环境下快速反编译APK">
 <meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2016/09/29/Android-decompile/index.html">
-<meta property="og:site_name" content="sweeneydi&#39;s Blog">
-<meta property="og:description" content="工具准备AndroidDecompiler（apktool、dex2jar）、jd-gui   反编译反编译AndroidManifest.xml和资源文件为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler">
+<meta property="og:site_name" content="Sweeney Di&#39;s Blog">
+<meta property="og:description" content="工具准备">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91jd-gui.png">
-<meta property="og:updated_time" content="2019-04-23T08:02:00.956Z">
+<meta property="og:updated_time" content="2020-02-25T10:42:24.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac环境下快速反编译APK">
-<meta name="twitter:description" content="工具准备AndroidDecompiler（apktool、dex2jar）、jd-gui   反编译反编译AndroidManifest.xml和资源文件为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler">
+<meta name="twitter:description" content="工具准备">
 <meta name="twitter:image" content="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png">
 
 <link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2016/09/29/Android-decompile/">
@@ -47,7 +50,7 @@
   };
 </script>
 
-  <title>Mac环境下快速反编译APK | sweeneydi's Blog</title>
+  <title>Mac环境下快速反编译APK | Sweeney Di's Blog</title>
   
 
 
@@ -78,7 +81,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="sweeneydi's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Sweeney Di's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -100,7 +103,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">sweeneydi's Blog</span>
+        <span class="site-title">Sweeney Di's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -121,19 +124,24 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
   </ul>
@@ -147,6 +155,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -171,7 +180,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -192,7 +201,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 16:02:00" itemprop="dateModified" datetime="2019-04-23T16:02:00+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 18:42:24" itemprop="dateModified" datetime="2020-02-25T18:42:24+08:00">25 Feb 2020</time>
               </span>
 
           
@@ -206,7 +215,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h1><p><a href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>（apktool、dex2jar）、<a href="https://github.com/java-decompiler/jd-gui">jd-gui</a></p>
+        <p>工具准备<a id="more"></a><br><a href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>（apktool、dex2jar）、<a href="https://github.com/java-decompiler/jd-gui">jd-gui</a></p>
 <p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png" alt="AndroidDecompiler"></p>
 <hr>
 <h1 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h1><h2 id="反编译AndroidManifest-xml和资源文件"><a href="#反编译AndroidManifest-xml和资源文件" class="headerlink" title="反编译AndroidManifest.xml和资源文件"></a>反编译AndroidManifest.xml和资源文件</h2><p>为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler目录下的dex2jar均copy到相应的目录下.</p>
@@ -234,6 +243,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
 
         
 
@@ -307,7 +319,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工具准备"><span class="nav-number">1.</span> <span class="nav-text">工具准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反编译"><span class="nav-number">2.</span> <span class="nav-text">反编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译AndroidManifest-xml和资源文件"><span class="nav-number">2.1.</span> <span class="nav-text">反编译AndroidManifest.xml和资源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译java代码"><span class="nav-number">2.2.</span> <span class="nav-text">反编译java代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#反编译"><span class="nav-number">1.</span> <span class="nav-text">反编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译AndroidManifest-xml和资源文件"><span class="nav-number">1.1.</span> <span class="nav-text">反编译AndroidManifest.xml和资源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译java代码"><span class="nav-number">1.2.</span> <span class="nav-text">反编译java代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -326,11 +338,27 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/December1900" title="GitHub → https://github.com/December1900"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/december1900" title="Twitter → https://twitter.com/december1900" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
 
 
 
@@ -357,10 +385,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Sweeney Di</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.1
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -401,6 +429,8 @@
 
 
 
+
+  
 
   
 

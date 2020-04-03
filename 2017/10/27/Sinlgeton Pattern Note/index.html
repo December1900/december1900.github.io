@@ -12,27 +12,29 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="定义 单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。  适用场景 系统只需要一个实例对象。例如，系统要求提供一个唯一的序列号生成器或者资源管理器，或者需要考虑资源消耗太大只允许创建一个状态（Windows进程管理器无论点击多少次始终只能弹出一个窗口，因为如果多个窗口弹出意味着在某一瞬间系统资源使用情况和进程，服务等信息存在多个">
+  <meta name="description" content="定义 单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式读书笔记-单例模式">
 <meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/10/27/Sinlgeton Pattern Note/index.html">
-<meta property="og:site_name" content="sweeneydi&#39;s Blog">
-<meta property="og:description" content="定义 单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。  适用场景 系统只需要一个实例对象。例如，系统要求提供一个唯一的序列号生成器或者资源管理器，或者需要考虑资源消耗太大只允许创建一个状态（Windows进程管理器无论点击多少次始终只能弹出一个窗口，因为如果多个窗口弹出意味着在某一瞬间系统资源使用情况和进程，服务等信息存在多个">
+<meta property="og:site_name" content="Sweeney Di&#39;s Blog">
+<meta property="og:description" content="定义 单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:dp:eager.png">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:dp:lazy.png">
-<meta property="og:updated_time" content="2019-04-23T07:59:50.735Z">
+<meta property="og:updated_time" content="2020-02-25T07:08:47.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式读书笔记-单例模式">
-<meta name="twitter:description" content="定义 单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。  适用场景 系统只需要一个实例对象。例如，系统要求提供一个唯一的序列号生成器或者资源管理器，或者需要考虑资源消耗太大只允许创建一个状态（Windows进程管理器无论点击多少次始终只能弹出一个窗口，因为如果多个窗口弹出意味着在某一瞬间系统资源使用情况和进程，服务等信息存在多个">
+<meta name="twitter:description" content="定义 单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。">
 <meta name="twitter:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:dp:eager.png">
 
 <link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/10/27/Sinlgeton Pattern Note/">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>设计模式读书笔记-单例模式 | sweeneydi's Blog</title>
+  <title>设计模式读书笔记-单例模式 | Sweeney Di's Blog</title>
   
 
 
@@ -78,7 +80,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="sweeneydi's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Sweeney Di's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -100,7 +102,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">sweeneydi's Blog</span>
+        <span class="site-title">Sweeney Di's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -121,19 +123,24 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
   </ul>
@@ -147,6 +154,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -171,7 +179,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -192,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:59:50" itemprop="dateModified" datetime="2019-04-23T15:59:50+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:08:47" itemprop="dateModified" datetime="2020-02-25T15:08:47+08:00">25 Feb 2020</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,7 +224,7 @@
 
       
         <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p>单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。</p>
+<p>单例模式：确保某一个类只有一个实例，且只能自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。<a id="more"></a></p>
 </blockquote>
 <h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ol>
 <li>系统只需要一个实例对象。例如，系统要求提供一个唯一的序列号生成器或者资源管理器，或者需要考虑资源消耗太大只允许创建一个状态（Windows进程管理器无论点击多少次始终只能弹出一个窗口，因为如果多个窗口弹出意味着在某一瞬间系统资源使用情况和进程，服务等信息存在多个状态）。</li>
@@ -453,11 +461,27 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/December1900" title="GitHub → https://github.com/December1900"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/december1900" title="Twitter → https://twitter.com/december1900" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
 
 
 
@@ -484,10 +508,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Sweeney Di</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.1
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -528,6 +552,8 @@
 
 
 
+
+  
 
   
 

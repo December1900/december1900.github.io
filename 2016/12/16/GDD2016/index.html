@@ -12,30 +12,32 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Review前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。但不得不说Google确实是全球科技的领先者，这次活动很全面的展示了如何使用谷歌的开发工具和其强大的生态，覆盖了移动应用开发（Andorid/Web/Firebase）,VR（DayDream/Tango）,AI（TensorFlow），Adwords。  9：">
+  <meta name="description" content="Review前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Google Developer Day 上海 2016 Thoughts">
 <meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2016/12/16/GDD2016/index.html">
-<meta property="og:site_name" content="sweeneydi&#39;s Blog">
-<meta property="og:description" content="Review前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。但不得不说Google确实是全球科技的领先者，这次活动很全面的展示了如何使用谷歌的开发工具和其强大的生态，覆盖了移动应用开发（Andorid/Web/Firebase）,VR（DayDream/Tango）,AI（TensorFlow），Adwords。  9：">
+<meta property="og:site_name" content="Sweeney Di&#39;s Blog">
+<meta property="og:description" content="Review前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:start.jpg">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:android.jpg">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:pixel.jpg">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:pixel2.jpg">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:md.jpg">
-<meta property="og:updated_time" content="2019-04-23T07:58:07.123Z">
+<meta property="og:updated_time" content="2020-02-25T07:09:09.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Developer Day 上海 2016 Thoughts">
-<meta name="twitter:description" content="Review前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。但不得不说Google确实是全球科技的领先者，这次活动很全面的展示了如何使用谷歌的开发工具和其强大的生态，覆盖了移动应用开发（Andorid/Web/Firebase）,VR（DayDream/Tango）,AI（TensorFlow），Adwords。  9：">
+<meta name="twitter:description" content="Review前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。">
 <meta name="twitter:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:start.jpg">
 
 <link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2016/12/16/GDD2016/">
@@ -50,7 +52,7 @@
   };
 </script>
 
-  <title>Google Developer Day 上海 2016 Thoughts | sweeneydi's Blog</title>
+  <title>Google Developer Day 上海 2016 Thoughts | Sweeney Di's Blog</title>
   
 
 
@@ -81,7 +83,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="sweeneydi's Blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Sweeney Di's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -103,7 +105,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">sweeneydi's Blog</span>
+        <span class="site-title">Sweeney Di's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -124,19 +126,24 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
   </ul>
@@ -150,6 +157,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -174,7 +182,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sweeneydi's Blog">
+      <meta itemprop="name" content="Sweeney Di's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -195,7 +203,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 23 Apr 2019 15:58:07" itemprop="dateModified" datetime="2019-04-23T15:58:07+08:00">23 Apr 2019</time>
+                <time title="Modified: 25 Feb 2020 15:09:09" itemprop="dateModified" datetime="2020-02-25T15:09:09+08:00">25 Feb 2020</time>
               </span>
 
           
@@ -209,7 +217,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a><strong>Review</strong></h1><p>前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。但不得不说Google确实是全球科技的领先者，这次活动很全面的展示了如何使用谷歌的开发工具和其强大的生态，覆盖了移动应用开发（Andorid/Web/Firebase）,VR（DayDream/Tango）,AI（TensorFlow），Adwords。</p>
+        <h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a><strong>Review</strong></h1><p>前天参加了在上海国家会议中心举行的Goolge Developer Day，与其说是开发者大会，感觉用推广大会来描述会更准确。<a id="more"></a>但不得不说Google确实是全球科技的领先者，这次活动很全面的展示了如何使用谷歌的开发工具和其强大的生态，覆盖了移动应用开发（Andorid/Web/Firebase）,VR（DayDream/Tango）,AI（TensorFlow），Adwords。</p>
 <p><img src="http://oq8w2ddi6.bkt.clouddn.com/blog:gdd:start.jpg" alt="image1"></p>
 <p>9：00–18：30，Goolge按照领域划分了不同的主题演讲，嘉宾按照自己的喜好选择即可，诚意还是十足基本都是高管或者大牛。简单整理下一些自己的想法，略显遗憾的是没有玩到DayDream，哈哈。</p>
 <hr>
@@ -331,11 +339,27 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/December1900" title="GitHub → https://github.com/December1900"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/december1900" title="Twitter → https://twitter.com/december1900" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
 
 
 
@@ -362,10 +386,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Sweeney Di</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.1
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -406,6 +430,8 @@
 
 
 
+
+  
 
   
 
