@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-next.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-next.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-next.jpg">
@@ -19,24 +19,24 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在正式开始volatile板块之间，先从Java内存模型说起。 Java内存模型的简单概念和规则Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。 简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（">
+  <meta name="description" content="在正式开始volatile板块之间，先从Java内存模型说起。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="volatile关键字详解">
-<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/index.html">
+<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile%20Keyword/index.html">
 <meta property="og:site_name" content="Sweeney Di&#39;s Blog">
-<meta property="og:description" content="在正式开始volatile板块之间，先从Java内存模型说起。 Java内存模型的简单概念和规则Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。 简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="在正式开始volatile板块之间，先从Java内存模型说起。">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png">
-<meta property="og:updated_time" content="2020-04-04T08:21:03.530Z">
+<meta property="article:published_time" content="2017-12-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-18T10:35:49.350Z">
+<meta property="article:author" content="Sweeney Di">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="volatile关键字详解">
-<meta name="twitter:description" content="在正式开始volatile板块之间，先从Java内存模型说起。 Java内存模型的简单概念和规则Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。 简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（">
 <meta name="twitter:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png">
 
-<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/">
+<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile%20Keyword/">
 
 
 <script id="page-configurations">
@@ -164,12 +164,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile%20Keyword/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Talk is cheap.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -194,7 +194,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 04 Apr 2020 16:21:03" itemprop="dateModified" datetime="2020-04-04T16:21:03+08:00">04 Apr 2020</time>
+                <time title="Modified: 18 Apr 2020 18:35:49" itemprop="dateModified" datetime="2020-04-18T18:35:49+08:00">18 Apr 2020</time>
               </span>
 
           
@@ -208,11 +208,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在正式开始volatile板块之间，先从Java内存模型说起。</p>
+        <p>在正式开始volatile板块之间，先从Java内存模型说起。<a id="more"></a></p>
 <h1 id="Java内存模型的简单概念和规则"><a href="#Java内存模型的简单概念和规则" class="headerlink" title="Java内存模型的简单概念和规则"></a>Java内存模型的简单概念和规则</h1><p>Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。</p>
 <p>简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（Cache）来作为内存与处理器之间的缓冲。</p>
 <p>而在Java内存模型规定了所有的变量都存储在主内存中。每条线程还有自己的工作内存，类比于处理器高速缓存，线程的操作都必须在工作内存中进行，它们只能访问自己的工作内存，且工作前后都要把值再同步回主内存。</p>
-<p>三者关系如下：<br><img src="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png" alt></p>
+<p>三者关系如下：<br><img src="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png" alt=""></p>
 <p>如果要把一个变量从主内存复制到工作内存，那就要顺序地执行read和load操作，如果要把变量从工作内存同步会主内存，就要顺序执行store和write操作。</p>
 <p><strong>注意：Java内存模型只要求上述两个操作必须按顺序执行，而没有保证是连续执行。也就是说，read和load之间，store和write之间是可插入其他指令的。</strong></p>
 <h1 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h1><p>被volatile修饰的共享变量，具有以下两点特性：</p>
@@ -273,7 +273,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/12/03/Builder Pattern Note/" rel="prev" title="设计模式读书笔记-建造者模式">
+    <a href="/2017/12/03/Builder%20Pattern%20Note/" rel="prev" title="设计模式读书笔记-建造者模式">
       <i class="fa fa-chevron-left"></i> 设计模式读书笔记-建造者模式
     </a></div>
       <div class="post-nav-item">
@@ -348,7 +348,7 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">Talk is cheap.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -361,7 +361,7 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -383,7 +383,44 @@
 
 
 
+
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+      <div class="links-of-blogroll-title">
+        <!-- modify icon to fire by szw -->
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        Recent Post
       </div>
+      <ul class="links-of-blogroll-list">
+        
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+
+      </div>
+
+      
 
     </div>
   </aside>
@@ -409,7 +446,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
@@ -426,38 +463,96 @@
   </div>
 
   
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile%20Keyword/',]
+      });
+      });
+  </script>
+
+
+  
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+
+  
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        Recent Post
+    </div>
+    <ul class="links-of-blogroll-list">
+        
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+    </ul>
+    </div>
+
 
 </body>
 

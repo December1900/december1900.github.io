@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-next.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-next.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-next.jpg">
@@ -19,26 +19,26 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言：在接入Tinker前先简单了解下Tinker原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tinker接入指南">
-<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/04/04/Tinker接入指南/index.html">
+<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/04/04/Tinker%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="Sweeney Di&#39;s Blog">
 <meta property="og:description" content="前言：在接入Tinker前先简单了解下Tinker原理">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.processon.com/chart_image/58e88df9e4b0a49a5ff142fb.png">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/tinker-1.png">
 <meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/tinker-2.png">
-<meta property="og:updated_time" content="2020-02-25T07:08:58.545Z">
+<meta property="article:published_time" content="2017-04-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:08:58.545Z">
+<meta property="article:author" content="Sweeney Di">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tinker接入指南">
-<meta name="twitter:description" content="前言：在接入Tinker前先简单了解下Tinker原理">
 <meta name="twitter:image" content="https://www.processon.com/chart_image/58e88df9e4b0a49a5ff142fb.png">
 
-<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/04/04/Tinker接入指南/">
+<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/04/04/Tinker%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97/">
 
 
 <script id="page-configurations">
@@ -166,12 +166,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2017/04/04/Tinker接入指南/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2017/04/04/Tinker%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Talk is cheap.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -211,7 +211,7 @@
 
       
         <p>前言：在接入Tinker前先简单了解下Tinker原理 <a id="more"></a></p>
-<p><img src="https://www.processon.com/chart_image/58e88df9e4b0a49a5ff142fb.png" alt></p>
+<p><img src="https://www.processon.com/chart_image/58e88df9e4b0a49a5ff142fb.png" alt=""></p>
 <h1 id="TinkerPatch-接入"><a href="#TinkerPatch-接入" class="headerlink" title="TinkerPatch 接入"></a>TinkerPatch 接入</h1><p>很多接入指南和教程都是以接入Tinker为例，但实际情况一个产品不可能只有开发人员自己使用，需要能够管理和下发补丁的平台，结合实际情况选择TinkerPatch平台接入是最合适的。</p>
 <blockquote>
 <p>Tinker 需要使用者有一个后台可以下发和管理补丁包，并且需要处理传输安全等部署工作，TinkerPatch 平台帮你做了这些工作，提供了补丁后台托管，版本管理，保证传输安全等功能，让你无需搭建一个后台，无需关心部署操作，<strong>只需引入一个 SDK 即可立即使用 Tinker</strong></p>
@@ -249,11 +249,11 @@
 </li>
 </ul>
 <p>因为之前路径已经配置好，所以只需要把release.apk填写入baseInfo</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/tinker-1.png" alt></p>
+<p><img src="http://oe90x7ww9.bkt.clouddn.com/tinker-1.png" alt=""></p>
 <ul>
 <li><strong>3. 修改源代码，运行./gradlew tinkerPatchRelease —no-daemon构建补丁包，补丁包将位于 build/outputs/tinkerPatch 中</strong></li>
 </ul>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/tinker-2.png" alt></p>
+<p><img src="http://oe90x7ww9.bkt.clouddn.com/tinker-2.png" alt=""></p>
 <ul>
 <li><strong>4. 将patch_signed _7zip.apk加入管理平台</strong></li>
 </ul>
@@ -347,7 +347,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TinkerPatch-接入"><span class="nav-number">1.</span> <span class="nav-text">TinkerPatch 接入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①-添加gradle依赖"><span class="nav-number">1.1.</span> <span class="nav-text">① 添加gradle依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②-配置-tinkerpatchSupport参数"><span class="nav-number">1.2.</span> <span class="nav-text">② 配置 tinkerpatchSupport参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#③-初始化-TinkerPatch-SDK"><span class="nav-number">1.3.</span> <span class="nav-text">③ 初始化 TinkerPatch SDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-reflectApplication-true-的情况"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.reflectApplication = true 的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-reflectApplication-false-的情况"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.reflectApplication = false 的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#④-使用步骤（Release为例）"><span class="nav-number">1.4.</span> <span class="nav-text">④ 使用步骤（Release为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用gradle-进行apk签名打包"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用gradle 进行apk签名打包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">2.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于Application的改造"><span class="nav-number">2.1.</span> <span class="nav-text">1.关于Application的改造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何做多次修复？"><span class="nav-number">2.2.</span> <span class="nav-text">2.如何做多次修复？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TinkerPatch-接入"><span class="nav-number">1.</span> <span class="nav-text">TinkerPatch 接入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①-添加gradle依赖"><span class="nav-number">1.1.</span> <span class="nav-text">① 添加gradle依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②-配置-tinkerpatchSupport参数"><span class="nav-number">1.2.</span> <span class="nav-text">② 配置 tinkerpatchSupport参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#③-初始化-TinkerPatch-SDK"><span class="nav-number">1.3.</span> <span class="nav-text">③ 初始化 TinkerPatch SDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-reflectApplication-true-的情况"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.reflectApplication &#x3D; true 的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-reflectApplication-false-的情况"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.reflectApplication &#x3D; false 的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#④-使用步骤（Release为例）"><span class="nav-number">1.4.</span> <span class="nav-text">④ 使用步骤（Release为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用gradle-进行apk签名打包"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用gradle 进行apk签名打包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">2.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于Application的改造"><span class="nav-number">2.1.</span> <span class="nav-text">1.关于Application的改造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何做多次修复？"><span class="nav-number">2.2.</span> <span class="nav-text">2.如何做多次修复？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -356,7 +356,7 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">Talk is cheap.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -369,7 +369,7 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -391,7 +391,44 @@
 
 
 
+
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+      <div class="links-of-blogroll-title">
+        <!-- modify icon to fire by szw -->
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        Recent Post
       </div>
+      <ul class="links-of-blogroll-list">
+        
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+
+      </div>
+
+      
 
     </div>
   </aside>
@@ -417,7 +454,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
@@ -434,38 +471,86 @@
   </div>
 
   
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
+
+  
+
+
+  
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+
+  
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        Recent Post
+    </div>
+    <ul class="links-of-blogroll-list">
+        
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+    </ul>
+    </div>
+
 
 </body>
 

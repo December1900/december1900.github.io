@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-next.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-next.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-next.jpg">
@@ -19,16 +19,16 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="RxJava属于响应式编程，是一种基于异步数据流的编程方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RxJava2.x 整理">
-<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/11/03/RxJava 2.x/index.html">
+<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/11/03/RxJava%202.x/index.html">
 <meta property="og:site_name" content="Sweeney Di&#39;s Blog">
 <meta property="og:description" content="RxJava属于响应式编程，是一种基于异步数据流的编程方式。">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw1024/52eb2279jw1f2rx46dspqj20gn04qaad.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rx42h1wgj20fz03rglt.jpg">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3994917-21e4dcc1b5e3196a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -38,13 +38,13 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxd1vl7xj20hd0hzq6e.jpg">
 <meta property="og:image" content="http://on-img.com/chart_image/59955604e4b0a6812c100916.png">
 <meta property="og:image" content="http://on-img.com/chart_image/5995587ae4b0b83fa260c4e9.png">
-<meta property="og:updated_time" content="2019-04-23T08:00:57.201Z">
+<meta property="article:published_time" content="2017-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-04-23T08:00:57.201Z">
+<meta property="article:author" content="Sweeney Di">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RxJava2.x 整理">
-<meta name="twitter:description" content="RxJava属于响应式编程，是一种基于异步数据流的编程方式。">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/mw1024/52eb2279jw1f2rx46dspqj20gn04qaad.jpg">
 
-<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/11/03/RxJava 2.x/">
+<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/11/03/RxJava%202.x/">
 
 
 <script id="page-configurations">
@@ -172,12 +172,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2017/11/03/RxJava 2.x/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2017/11/03/RxJava%202.x/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Talk is cheap.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -222,9 +222,9 @@
 <p>响应式的RxJava通过链式的逻辑简洁能够呈现出最简洁但不失优雅的异步代码，更重要的是随着逻辑越来越复杂，它依然可以保持简洁。</p>
 <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p><strong>Observable：被观察者，它决定什么时候触发事件以及触发怎么样的事件</strong><br><strong>Observer：观察者，它决定事件触发的时候将有什么样的行为</strong></p>
 <p>当发生事件时候，Observable 通过 subscribe() 订阅 Observer，这就是观察者模式</p>
-<p><img src="http://ww3.sinaimg.cn/mw1024/52eb2279jw1f2rx46dspqj20gn04qaad.jpg" alt></p>
+<p><img src="http://ww3.sinaimg.cn/mw1024/52eb2279jw1f2rx46dspqj20gn04qaad.jpg" alt=""></p>
 <p>对比一个实例更容易理解</p>
-<p><img src="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rx42h1wgj20fz03rglt.jpg" alt><br>按照观察者模式来理解（Button -&gt; 被观察者，OnClikcListener -&gt; 观察者，setOnClickListener -&gt; 订阅，onClick -&gt; 事件）</p>
+<p><img src="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rx42h1wgj20fz03rglt.jpg" alt=""><br>按照观察者模式来理解（Button -&gt; 被观察者，OnClikcListener -&gt; 观察者，setOnClickListener -&gt; 订阅，onClick -&gt; 事件）</p>
 <p>因此RxJava四个基本概念分别为：<code>Observable</code>(可观察者，即被观察者)、 <code>Observer</code>(观察者)、 <code>subscribe</code> (订阅)、事件。<code>Observable</code> 和 <code>Observer</code> 通过 subscribe() 方法实现订阅关系，从而 <code>Observable</code> 可以在需要的时候发出事件来通知<code>Observer</code>。</p>
 <h2 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h2><p>相比于1.x，2.x增加新特性并且依赖了于四个基本接口</p>
 <ul>
@@ -239,7 +239,7 @@
 </blockquote>
 <p>因此2.x最大的改动就是将 Observable 拆分为 Observable 和 Flowable。</p>
 <p>同时出现了两种观察者模式。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3994917-21e4dcc1b5e3196a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3994917-21e4dcc1b5e3196a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h3 id="创建Observer"><a href="#创建Observer" class="headerlink" title="创建Observer"></a>创建Observer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Observer&lt;Integer&gt; observer = <span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</span><br><span class="line">    Disposable mDisposable;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        mDisposable = d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (integer == <span class="number">2</span>) &#123;</span><br><span class="line">            mDisposable.dispose();</span><br><span class="line">        &#125;</span><br><span class="line">        Log.d(TAG, <span class="string">"onNext : value : "</span> + integer + <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onComplete"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>onSubscribe()</code>回调方法传递参数为<code>Disposable</code>，<code>Disposable</code>相当于 RxJava 1.x 中的 <code>Subscription</code>， 用于解除订阅。</p>
 <p>同时需要注意的是，<code>onComplete()</code>和<code>onError()</code>方法是互斥的，在队列中调用其中一个，就不应该再调用另一个。</p>
@@ -257,14 +257,13 @@
 <p><code>Consumer</code> -&gt; <code>Action1</code></p>
 <p><code>BiConsumer</code> -&gt; <code>Action2</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    Observable.just(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">            .subscribe(<span class="keyword">new</span> Consumer&lt;Integer&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Integer integer)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                    Log.d(TAG, <span class="string">"accept : integer :"</span> + integer + <span class="string">"\n"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, <span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                    Log.d(TAG, throwable.getMessage());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="变换的原理lift"><a href="#变换的原理lift" class="headerlink" title="变换的原理lift()"></a>变换的原理lift()</h2><p>lift()核心代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;R&gt; <span class="function">Observable&lt;R&gt; <span class="title">lift</span><span class="params">(Operator&lt;? extends R, ? <span class="keyword">super</span> T&gt; operator)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Observable.create(<span class="keyword">new</span> OnSubscribe&lt;R&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber subscriber)</span> </span>&#123;</span><br><span class="line">            Subscriber newSubscriber = operator.call(subscriber);</span><br><span class="line">            newSubscriber.onStart();</span><br><span class="line">            onSubscribe.call(newSubscriber);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>好玩的是 lift() 生成新的 Observable 并返回，而且创建新 Observable 所用参数 OnSubscribe 的回调方法 call() 的实现和Observable.subscribe() 其实是一样的。在lift()创建了一个 Observable 后，加上之前的原始 Observable，其实就会有两个 Observable。</p>
+<h2 id="变换的原理lift"><a href="#变换的原理lift" class="headerlink" title="变换的原理lift()"></a>变换的原理lift()</h2><p>lift()核心代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;R&gt; <span class="function">Observable&lt;R&gt; <span class="title">lift</span><span class="params">(Operator&lt;? extends R, ? <span class="keyword">super</span> T&gt; operator)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Observable.create(<span class="keyword">new</span> OnSubscribe&lt;R&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber subscriber)</span> </span>&#123;</span><br><span class="line">            Subscriber newSubscriber = operator.call(subscriber);</span><br><span class="line">            newSubscriber.onStart();</span><br><span class="line">            onSubscribe.call(newSubscriber);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>好玩的是 lift() 生成新的 Observable 并返回，而且创建新 Observable 所用参数 OnSubscribe 的回调方法 call() 的实现和Observable.subscribe() 其实是一样的。在lift()创建了一个 Observable 后，加上之前的原始 Observable，其实就会有两个 Observable。</p>
 <p>类比过来 lift() 有些像一种代理机制，拦截事件和实现事件序列的变换。</p>
 <p>这句话概括的简洁明了</p>
 <blockquote>
 <p>在 Observable 执行了 lift(Operator) 方法之后，会返回一个新的 Observable，这个新的 Observable 会像一个代理一样，负责接收原始的 Observable 发出的事件，并在处理后发送给 Subscriber。</p>
 </blockquote>
-<p><img src="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxcrna27j20h40d1q4f.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxcrna27j20h40d1q4f.jpg" alt=""></p>
 <h2 id="线程控制"><a href="#线程控制" class="headerlink" title="线程控制"></a>线程控制</h2><p>既然是异步，关键在于线程的切换，RxJava使用 subscribeOn() 和 observeOn() 来轻松进行线程控制。</p>
 <p>RxJava内置线程供选择</p>
 <ul>
@@ -280,11 +279,11 @@
 </blockquote>
 <p><code>subscribeOn()</code> 和 <code>observeOn()</code>的内部实现也是用的 <code>lift()</code>，也就是说线程控制的原理主要也是lift ()。</p>
 <p>不同的是 subscribeOn() 的线程切换发生在内建的 OnSubscribe 中，在通知上一级 OnSubscribe 时，事件还没有由上一级的 OnSubscribe 发送到Subscriber，所以 <code>subscribeOn()</code>可以从一开始最开端就影响后续的切换。</p>
-<p><img src="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rxcynbsuj20ha0d7wg2.jpg" alt></p>
+<p><img src="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rxcynbsuj20ha0d7wg2.jpg" alt=""></p>
 <p>但是 <code>observeOn()</code> 不一样，它的线程切换发生在内建的<br> Subscriber 发送事件给下一级的 Subscriber时，所以<code>observeOn()</code>是控制后面的线程，observeOn() 指定的是它之后的操作所在的线程。</p>
-<p><img src="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rxd05lttj20hj0cyabl.jpg" alt></p>
+<p><img src="http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rxd05lttj20hj0cyabl.jpg" alt=""></p>
 <p>这样也就很好理解如果有多次切换线程的需求, <code>observeOn()</code>可以多次调用，但是只有第一个 <code>subscribeOn()</code> 起作用，因为通知过程中线程就被第一个<code>subscribeOn()</code>截断了。</p>
-<p><img src="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxd1vl7xj20hd0hzq6e.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxd1vl7xj20hd0hzq6e.jpg" alt=""></p>
 <h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p><a href="https://github.com/December1900/RxJava2Samples-Android">Mytraining for RxJava2</a></p>
 <h2 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h2><p><code>doOnNext()</code>，<code>doOnSubscribeOn()</code>分析</p>
 <hr>
@@ -298,8 +297,8 @@
 </thead>
 <tbody>
 <tr>
-<td>About <code>backpressure</code> <img src="http://on-img.com/chart_image/59955604e4b0a6812c100916.png" alt></td>
-<td>About <code>backpressure</code> <img src="http://on-img.com/chart_image/5995587ae4b0b83fa260c4e9.png" alt></td>
+<td>About <code>backpressure</code> <img src="http://on-img.com/chart_image/59955604e4b0a6812c100916.png" alt=""></td>
+<td>About <code>backpressure</code> <img src="http://on-img.com/chart_image/5995587ae4b0b83fa260c4e9.png" alt=""></td>
 </tr>
 <tr>
 <td>when create Observable, callback <code>Observable.onSubscribe()</code></td>
@@ -335,11 +334,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/10/27/Sinlgeton Pattern Note/" rel="prev" title="设计模式读书笔记-单例模式">
+    <a href="/2017/10/27/Sinlgeton%20Pattern%20Note/" rel="prev" title="设计模式读书笔记-单例模式">
       <i class="fa fa-chevron-left"></i> 设计模式读书笔记-单例模式
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/11/27/Proxy Pattern Note/" rel="next" title="设计模式读书笔记-代理模式">
+    <a href="/2017/11/27/Proxy%20Pattern%20Note/" rel="next" title="设计模式读书笔记-代理模式">
       设计模式读书笔记-代理模式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -410,7 +409,7 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">Talk is cheap.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -423,7 +422,7 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -445,7 +444,44 @@
 
 
 
+
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+      <div class="links-of-blogroll-title">
+        <!-- modify icon to fire by szw -->
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        Recent Post
       </div>
+      <ul class="links-of-blogroll-list">
+        
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+          <li>
+            <a href="/" title="" target="_blank"></a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+
+      </div>
+
+      
 
     </div>
   </aside>
@@ -471,7 +507,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
@@ -488,38 +524,86 @@
   </div>
 
   
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
+
+  
+
+
+  
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+
+  
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        Recent Post
+    </div>
+    <ul class="links-of-blogroll-list">
+        
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+        <li>
+            <a href="/" title="" target="_blank"></a>
+        </li>
+        
+    </ul>
+    </div>
+
 
 </body>
 
