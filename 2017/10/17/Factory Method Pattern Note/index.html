@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -170,7 +170,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="Talk is cheap.">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -218,7 +218,6 @@
 </ol>
 <h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><p><img src="http://oq8w2ddi6.bkt.clouddn.com/dp:factory.png" alt="Factory Method"></p>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象产品</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Logger</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">writeLog</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//具体产品</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DatabaseLogger</span> <span class="keyword">implements</span> <span class="title">Logger</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeLog</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"数据库日志记录"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileLogger</span> <span class="keyword">implements</span> <span class="title">Logger</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeLog</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Systme.out.println(<span class="string">"文件日志记录"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象工厂</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">LoggerFactory</span></span>&#123;</span><br><span class="line">  <span class="function">Logger <span class="title">createLogger</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//具体工厂</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DatabaseLoggerFactory</span> <span class="keyword">implements</span> <span class="title">LoggerFactory</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Logger <span class="title">createLogger</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DatabaseLogger();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileLoggerFactory</span> <span class="keyword">implements</span> <span class="title">LoggerFactory</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Logger <span class="title">createLogger</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FileLogger();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    LoggerFactory factory;</span><br><span class="line">    Logger logger;</span><br><span class="line">    factory = <span class="keyword">new</span> DatabaseLoggerFactory();</span><br><span class="line">    logger = factory.createLogger();</span><br><span class="line">    logger.writeLog();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="工厂方法模式总结"><a href="#工厂方法模式总结" class="headerlink" title="工厂方法模式总结"></a>工厂方法模式总结</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
 <li>在工厂方法模式中，工厂方法用来创建客户所需要的产品，用户只需要关心所需产品对应的工厂，无需关心创建细节，甚至无需知道具体产品类的类名。</li>
 <li>基于工厂角色和产品角色的多态性设计是工厂方法模式的关键。工厂能够自主确定创建何种产品对象，而如何创建这个对象的细节则完全封装在具体工厂内部。</li>
@@ -322,14 +321,14 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description">Talk is cheap.</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -341,7 +340,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -400,6 +399,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

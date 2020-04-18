@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://github.com/December1900/December1900.github.io.git/about/index.html</loc>
+    <loc>https://github.com/December1900/December1900.github.io.git/2020/04/17/CS224N-L2/</loc>
     
-    <lastmod>2020-04-03T16:17:44.319Z</lastmod>
+    <lastmod>2020-04-18T10:27:52.639Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://github.com/December1900/December1900.github.io.git/2017/12/03/Builder%20Pattern%20Note/</loc>
+    
+    <lastmod>2020-04-04T11:14:48.354Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile%20Keyword/</loc>
     
-    <lastmod>2020-04-03T16:15:50.637Z</lastmod>
+    <lastmod>2020-04-04T08:21:03.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://github.com/December1900/December1900.github.io.git/about/index.html</loc>
+    
+    <lastmod>2020-04-03T16:17:44.319Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>https://github.com/December1900/December1900.github.io.git/2017/10/17/Factory%20Method%20Pattern%20Note/</loc>
     
     <lastmod>2020-02-25T10:44:29.548Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://github.com/December1900/December1900.github.io.git/2017/12/03/Builder%20Pattern%20Note/</loc>
-    
-    <lastmod>2020-02-25T10:43:00.988Z</lastmod>
     
   </url>
   

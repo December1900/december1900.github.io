@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -170,7 +170,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="Talk is cheap.">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -228,19 +228,15 @@
 <h1 id="单例模式概述"><a href="#单例模式概述" class="headerlink" title="单例模式概述"></a>单例模式概述</h1><p>单例类有很多实现方式，但是基本共同要点在于</p>
 <h2 id="构建私有构造函数"><a href="#构建私有构造函数" class="headerlink" title="构建私有构造函数"></a><strong>构建私有构造函数</strong></h2><p>原因在于为了确保单例实例的唯一性，需要禁止类的外部直接用new来创建对象，因此需要将构造函数的可见性改为private</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="定义静态Sinleton类型的私有成员变量"><a href="#定义静态Sinleton类型的私有成员变量" class="headerlink" title="定义静态Sinleton类型的私有成员变量"></a><strong>定义静态Sinleton类型的私有成员变量</strong></h2><ul>
 <li>类的外部不能使用new来创建对象，但是外部能访问这个唯一实例，同时内部能创建保存这个唯一实例。</li>
 <li>为什么成员变量需要定义为静态？因为提供给外部的静态方法不能访问非静态变量。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Singleton single = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
-
 <h2 id="定义一个公有的静态方法"><a href="#定义一个公有的静态方法" class="headerlink" title="定义一个公有的静态方法"></a><strong>定义一个公有的静态方法</strong></h2><p>提供给外界使用并实例化成员变量</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (sinlge == <span class="keyword">null</span>)&#123;</span><br><span class="line">       single = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> tm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>因此最简单经典的单例模式如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Singleton single = <span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (single == <span class="keyword">null</span>)&#123;</span><br><span class="line">      single = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> single;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
 <p> 这是最经典实现方式，结合项目使用情况衍生出更多的实现方式</p>
 <ul>
 <li>Eager Singleton</li>
@@ -251,13 +247,10 @@
 <hr>
 <h2 id="饿汉单例"><a href="#饿汉单例" class="headerlink" title="饿汉单例"></a>饿汉单例</h2><p>结构图如下<br><img src="http://oq8w2ddi6.bkt.clouddn.com/blog:dp:eager.png" alt="EagerSingleton"><br>由于在定义静态变量时实例化单例类，因此在类加载的时候就已经创建了单例对象，可确保单例对象的唯一性。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EagerSingleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> EagerSingleton single = <span class="keyword">new</span> EagerSingleton();</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">EagerSinlgeton</span><span class="params">()</span></span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> EagerSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> single;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="懒汉单例与线程安全"><a href="#懒汉单例与线程安全" class="headerlink" title="懒汉单例与线程安全"></a>懒汉单例与线程安全</h2><p>结构图如下<br><img src="http://oq8w2ddi6.bkt.clouddn.com/blog:dp:lazy.png" alt="LazySingleton"><br>可以看到懒汉单例在第一次调用getInstance()时实例化，在类加载时并不自行实例化，这种技术又称为「<strong>延迟加载（Lazy Load)</strong>」技术，即需要的时候再加载实例。为了避免多个线程同时调用getInstance()方法，可以使用synchronized关键字。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> LazySingleton single = <span class="keyword">null</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">synchronized</span> <span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (single == <span class="keyword">null</span>)&#123;</span><br><span class="line">      single = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> single;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>这样虽然解决了线程安全问题，但是每次调用getInstance()时都需要进行线程锁定判断，在多线程高并发访问环境中，将会导致系统性能大大降低。综合考虑，不用对整个getInstacne()进行锁定，只需锁定<code>single = new Singleton();</code>即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> LazySingleton sinlge = <span class="keyword">null</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">LazySinlgeton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//the fisrt</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstacne</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (single == <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(LazySingleton<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line">        single = <span class="keyword">new</span> LazySinleton();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> single;</span><br><span class="line">  &#125; </span><br><span class="line">  </span><br><span class="line">  <span class="comment">//the second</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (single == <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(LazySingleton<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (single == <span class="keyword">null</span>)&#123;</span><br><span class="line">          single = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> single;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>第二种比第一种方法多了一层<code>if (single == null)</code>判断，为什么需要这层判断？不加可不可以?</p>
 <p>答案是不行。</p>
 <p><strong>如果使用第一种方法来创建单例对象,还是会存在单例对象不唯一。</strong></p>
@@ -277,7 +270,6 @@
 <p>Prior to Java 5, java memory model had a lot of issues and above approaches used to fail in certain scenarios where too many threads try to get the instance of the Singleton class simultaneously. So Bill Pugh came up with a different approach to create the Singleton class using a inner static helper class. The Bill Pugh Singleton implementation goes like this;</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BillPughSingleton</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">BillPughSingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHelper</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> BillPughSingleton instacne = <span class="keyword">new</span> BillPughSingleton();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BillPughSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> SingletonHelper.instance;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>由于静态单例对象没有作为BillPushSingleton的成员变量直接实例化，因此类加载时不会实例化Singleton，第一次调用getInstance()时将加载内部类SinlgetonHelper，内部类中的static变量instance会首先被初始化,由JVM来保证其线程安全，确保该成员变量只能初始化一次。</p>
 <p>可是为什么这样就是线程安全的呢？很多文章和书籍都没有解释清楚都是一笔带过，JVM保证线程安全。</p>
 <p>首先要知道的是<strong>静态变量只会初始化一次当类加载时</strong>。</p>
@@ -301,18 +293,16 @@
 </li>
 </ul>
 <h2 id="枚举单例"><a href="#枚举单例" class="headerlink" title="枚举单例"></a>枚举单例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton&#123;</span><br><span class="line">  INSTANCE;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Sinlgeton</span><span class="params">()</span></span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doWorks</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something here</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//If you then added another class with a main() method like</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  Sinlgeton.INSTANCE.doWorks();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>首先要明确的是枚举是一种特殊的类</p>
 <p>因此上文的枚举声明实际上可以类比为这样</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> Singleton INSATNCE = <span class="keyword">new</span> Singleton();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>当首次去调用INSTANCE时，Singleton类会被JVM加载并初始化，同时初始化静态变量的过程只发生一次，实现了延迟加载（lazily）。</p>
 <p>其次枚举单例能够自行处理序列化，传统的单例一旦实现序列化接口将不能保证实例的唯一性，因为readObject()方法总是能像构造器那样返回一个新的实例。但是可以通过readResolve()方法避免这种情况发生。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//readResolve to prevent another instance of Singleton</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>但实际上会更复杂运用在自己的单例类里，但是使用枚举类型，JVM来保证序列化。</p>
 <p>最后就是创建枚举实例默认是线程安全的（恩不需要解释就是默认）以及简单易写相比于上面几种单例。</p>
-<h2 id="VS"><a href="#VS" class="headerlink" title="VS"></a>VS</h2><table>
+<h2 id="VS"><a href="#VS" class="headerlink" title="VS"></a>VS</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Implementation</th>
@@ -320,7 +310,8 @@
 <th>Disadvantage</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Eager Sinlgeton</td>
 <td>1.无需考虑多线程访问问题，可以确保实例的唯一性 2.保持较高的系统性能</td>
 <td>类加载时就创建对象，不管将来用不用，始终占据内存，资源利用效率低</td>
@@ -340,7 +331,9 @@
 <td>实现延迟加载，又可以保证线程安全，不影响系统性能，同时支持序列化，简答易写</td>
 <td>扩展性差</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="单例模式总结"><a href="#单例模式总结" class="headerlink" title="单例模式总结"></a>单例模式总结</h1><h2 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h2><ol>
 <li>单例模式提供对唯一实例的受控访问，严格控制怎么以及何时访问唯一实例。</li>
 <li>保证只存在唯一实例，节约系统资源。</li>
@@ -446,14 +439,14 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description">Talk is cheap.</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -465,7 +458,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -524,6 +517,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

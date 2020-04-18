@@ -22,23 +22,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="工具准备">
-<meta name="keywords" content="Android">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mac环境下快速反编译APK">
-<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2016/09/29/Android-decompile/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Sweeney Di&#39;s Blog">
+<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/tags/NLP/index.html">
 <meta property="og:site_name" content="Sweeney Di&#39;s Blog">
-<meta property="og:description" content="工具准备">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91jd-gui.png">
-<meta property="og:updated_time" content="2020-02-25T10:42:24.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac环境下快速反编译APK">
-<meta name="twitter:description" content="工具准备">
-<meta name="twitter:image" content="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png">
+<meta name="twitter:title" content="Sweeney Di&#39;s Blog">
 
-<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2016/09/29/Android-decompile/">
+<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/tags/NLP/">
 
 
 <script id="page-configurations">
@@ -46,11 +38,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true
+    isPost: false
   };
 </script>
 
-  <title>Mac环境下快速反编译APK | Sweeney Di's Blog</title>
+  <title>Tag: NLP | Sweeney Di's Blog</title>
   
 
 
@@ -161,110 +153,50 @@
           <div class="content">
             
 
-  <div class="posts-expand">
-      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2016/09/29/Android-decompile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sweeney Di's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Mac环境下快速反编译APK
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h1 class="collection-header">NLP
+          <small>Tag</small>
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 29 Sep 2016 00:00:00" itemprop="dateCreated datePublished" datetime="2016-09-29T00:00:00+08:00">29 Sep 2016</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 25 Feb 2020 18:42:24" itemprop="dateModified" datetime="2020-02-25T18:42:24+08:00">25 Feb 2020</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
       
-        <p>工具准备<a id="more"></a><br><a href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>（apktool、dex2jar）、<a href="https://github.com/java-decompiler/jd-gui">jd-gui</a></p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91%E6%88%AA%E5%9B%BE.png" alt="AndroidDecompiler"></p>
-<hr>
-<h1 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h1><h2 id="反编译AndroidManifest-xml和资源文件"><a href="#反编译AndroidManifest-xml和资源文件" class="headerlink" title="反编译AndroidManifest.xml和资源文件"></a>反编译AndroidManifest.xml和资源文件</h2><p>为了防止文件内容和位置混乱，最好新建一个目录来进行反编译操作(/users/username/downloads/test)具体依照个人习惯，然后将需要反编译的apk(以app-release.apk为例子)和AndroidDecompiler目录下的dex2jar均copy到相应的目录下.</p>
-<p>再使用apktool反编译apk，可以获得AndroidManifest.xml和资源文件.</p>
-<blockquote>
-<p>$ apktool d app-release.apk</p>
-</blockquote>
-<p>执行完输出后，目录会新增一个app-release文件夹，里面有我们想要的res/和xml，到此资源文件已经反编译完成.</p>
-<h2 id="反编译java代码"><a href="#反编译java代码" class="headerlink" title="反编译java代码"></a>反编译java代码</h2><p>1.先解压.apk文件</p>
-<blockquote>
-<p>//解压app-release.apk到指定新建的app-release_source目录下<br>$ unzip app-release.apk -d app-release_source</p>
-</blockquote>
-<p>2.反编译.dex文件</p>
-<blockquote>
-<p>//在app-release_source目录下找到classes.dex并反编译为.class文件<br>$ sh dex2jar/d2j-dex2jar.sh app-release_source/classes.dex</p>
-</blockquote>
-<p>3.使用jd-gui打开第二步编译出的classes-dex2jar.jar文件</p>
-<p><img src="http://oe90x7ww9.bkt.clouddn.com/%E5%8F%8D%E7%BC%96%E8%AF%91jd-gui.png" alt="jd-gui"></p>
-<p>OK此时各种变量已经被混淆，说明反编译成功</p>
-
+    <div class="collection-year">
+      <h1 class="collection-header">2020</h1>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-04-17T00:00:00+08:00"
+              content="17 Apr 2020">
+          04-17
+        </time>
+      </div>
 
-        
+      <h2 class="post-title">
+          <a class="post-title-link" href="/2020/04/17/CS224N-L2/" itemprop="url">
+            <span itemprop="name">Notes for CS224N-L2</span>
+          </a>
+      </h2>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2016/09/07/Android-shareWechat/" rel="prev" title="Android 跳坑微信推送">
-      <i class="fa fa-chevron-left"></i> Android 跳坑微信推送
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2016/10/10/Android-QCharge/" rel="next" title="浅谈快充技术">
-      浅谈快充技术 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
   
 
-  </div>
+  
+
 
 
           </div>
@@ -315,7 +247,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#反编译"><span class="nav-number">1.</span> <span class="nav-text">反编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译AndroidManifest-xml和资源文件"><span class="nav-number">1.1.</span> <span class="nav-text">反编译AndroidManifest.xml和资源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译java代码"><span class="nav-number">1.2.</span> <span class="nav-text">反编译java代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

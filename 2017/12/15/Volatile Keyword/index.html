@@ -22,18 +22,18 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在正式开始volatile板块之间，先从Java内存模型说起。">
+  <meta name="description" content="在正式开始volatile板块之间，先从Java内存模型说起。 Java内存模型的简单概念和规则Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。 简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="volatile关键字详解">
 <meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/index.html">
 <meta property="og:site_name" content="Sweeney Di&#39;s Blog">
-<meta property="og:description" content="在正式开始volatile板块之间，先从Java内存模型说起。">
+<meta property="og:description" content="在正式开始volatile板块之间，先从Java内存模型说起。 Java内存模型的简单概念和规则Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。 简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png">
-<meta property="og:updated_time" content="2020-04-03T16:15:50.637Z">
+<meta property="og:updated_time" content="2020-04-04T08:21:03.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="volatile关键字详解">
-<meta name="twitter:description" content="在正式开始volatile板块之间，先从Java内存模型说起。">
+<meta name="twitter:description" content="在正式开始volatile板块之间，先从Java内存模型说起。 Java内存模型的简单概念和规则Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。 简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（">
 <meta name="twitter:image" content="http://oq8w2ddi6.bkt.clouddn.com/blog:volatile.png">
 
 <link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2017/12/15/Volatile Keyword/">
@@ -124,12 +124,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -169,7 +169,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="Talk is cheap.">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -194,7 +194,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 04 Apr 2020 00:15:50" itemprop="dateModified" datetime="2020-04-04T00:15:50+08:00">04 Apr 2020</time>
+                <time title="Modified: 04 Apr 2020 16:21:03" itemprop="dateModified" datetime="2020-04-04T16:21:03+08:00">04 Apr 2020</time>
               </span>
 
           
@@ -208,7 +208,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在正式开始volatile板块之间，先从Java内存模型说起。<a id="more"></a> </p>
+        <p>在正式开始volatile板块之间，先从Java内存模型说起。</p>
 <h1 id="Java内存模型的简单概念和规则"><a href="#Java内存模型的简单概念和规则" class="headerlink" title="Java内存模型的简单概念和规则"></a>Java内存模型的简单概念和规则</h1><p>Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。</p>
 <p>简单来说，由于内存访问速度与处理器的运算速度有几个数量级的差距，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存（Cache）来作为内存与处理器之间的缓冲。</p>
 <p>而在Java内存模型规定了所有的变量都存储在主内存中。每条线程还有自己的工作内存，类比于处理器高速缓存，线程的操作都必须在工作内存中进行，它们只能访问自己的工作内存，且工作前后都要把值再同步回主内存。</p>
@@ -224,7 +224,7 @@
 <p>这又得回归Java内存模型来接着讨论。</p>
 <h2 id="Java内存模型的特征"><a href="#Java内存模型的特征" class="headerlink" title="Java内存模型的特征"></a>Java内存模型的特征</h2><p>JMM是围绕着在并发过程中如何处理<strong>原子性</strong>、<strong>可见性</strong>和<strong>有序性</strong>这3个特征来建立的。</p>
 <p><strong>1. 原子性（Atomicity）</strong>：</p>
-<p>我们大致可以认为基本数据类型的访问读写是具有原子性的，同时为了满足更大范围的原子性保证，Java内存模型还提供了lock和unlock操作来满足这种需求，尽管虚拟机未把lock和unlock操作直接开放给用户使用，但是提供了更高层次的字节码指令<code>monitorenter</code>和<code>monitorexit</code>来隐式地使用这两个操作，这两个字节码指令反映到Java代码中就是同步代码—<code>synchronized</code>关键字，因此在<code>synchronized</code>块之间的操作也具备原子性。</p>
+<p>我们大致可以认为基本数据类型的访问读写是具有原子性的，同时为了满足更大范围的原子性保证，Java内存模型还提供了lock和unlock操作来满足这种需求，尽管虚拟机未把lock和unlock操作直接开放给用户使用，但是提供了更高层次的字节码指令<code>monitorenter</code>和<code>monitorexit</code>来隐式地使用这两个操作，这两个字节码指令反映到Java代码中就是同步代码—-<code>synchronized</code>关键字，因此在<code>synchronized</code>块之间的操作也具备原子性。</p>
 <p><strong>2. 可见性（Visibility）</strong>：</p>
 <p>可见性是指当一个线程修改了共享变量的值，其他线程能够给立即得到这个修改。普通变量和<code>volatile</code>变量的区别是，<code>volatile</code>的特殊规则保证了新值能立即同步到内主存，以及每次使用前立即从主内存刷新。因此，可以说<code>volatile</code>保证了多线程操作时变量的可见性，而普通变量则不能保证这一点。</p>
 <p>除了volatile之外，Java还有两个关键字能还是实现可见性，即<code>synchronizd</code>和<code>final</code>。同步块的可见性是由“对一个变量执行unlock操作之前，必须先把此变量同步回主内存中”这条规则获得的，而<code>final</code>关键字的可见性是指：被<code>final</code>修饰的字段在构造器中一旦初始化完成，并且构造器没有把<code>this</code>的引用传递出去，那在其他线程中就能看见final字段的值。</p>
@@ -253,7 +253,6 @@
 </ul>
 <h1 id="volatile的使用场景"><a href="#volatile的使用场景" class="headerlink" title="volatile的使用场景"></a>volatile的使用场景</h1><p>除了状态量标记外，使用最多的则是单例的DCL实现。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">volatile</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(Singleton<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">          instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>为了避免初始化操作的指令重排序，使用volatile修饰instance。</p>
 <p>关于单例模式的解读，<a href="https://december1900.github.io/2017/10/27/Sinlgeton%20Pattern%20Note/" target="_blank" rel="noopener">移步这里</a>。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>深入理解JVM第十二章</p>
@@ -277,7 +276,10 @@
     <a href="/2017/12/03/Builder Pattern Note/" rel="prev" title="设计模式读书笔记-建造者模式">
       <i class="fa fa-chevron-left"></i> 设计模式读书笔记-建造者模式
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/17/CS224N-L2/" rel="next" title="Notes for CS224N-L2">
+      Notes for CS224N-L2 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -346,14 +348,14 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description">Talk is cheap.</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -365,7 +367,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -424,6 +426,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

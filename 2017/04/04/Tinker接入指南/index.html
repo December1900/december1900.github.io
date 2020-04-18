@@ -126,12 +126,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -171,7 +171,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="Talk is cheap.">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -218,24 +218,18 @@
 </blockquote>
 <h2 id="①-添加gradle依赖"><a href="#①-添加gradle依赖" class="headerlink" title="① 添加gradle依赖"></a><strong>① 添加gradle依赖</strong></h2><p>在项目的build.gradle中添加tinkerpatch-gradle-plugin的依赖</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// TinkerPatch 插件</span></span><br><span class="line">        classpath <span class="string">'com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.1.4'</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//不需要再引入任何Tinker依赖</span></span><br><span class="line">        <span class="comment">// classpath 'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.7'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><strong>注意，在这里 SDK 使用了 fat 打包的模式，我们不能再引入任何 Tinker 的相关依赖，否则会造成版本冲突</strong></p>
 </blockquote>
 <p>然后在app的gradle文件app/build.gradle，我们可选择添加需要的库依赖以及apply tinker和tinkerpatch的gradle插件.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">//虽然官方文档上没有说明，但是之前没有引入的也是必须要添加的</span></span><br><span class="line">    compile ’com.android.support:multidex:<span class="number">1.0</span><span class="number">.1</span>‘</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 若使用annotation需要单独引用,对于tinker的其他库都无需再引用</span></span><br><span class="line">    provided(<span class="string">'com.tencent.tinker:tinker-android-anno:1.7.7'</span>)</span><br><span class="line">    compile(<span class="string">'com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">···</span><br><span class="line">···</span><br><span class="line">apply plugin: <span class="string">'com.tencent.tinker.patch'</span></span><br><span class="line">apply plugin: <span class="string">'tinkerpatch-support'</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="②-配置-tinkerpatchSupport参数"><a href="#②-配置-tinkerpatchSupport参数" class="headerlink" title="② 配置 tinkerpatchSupport参数"></a><strong>② 配置 tinkerpatchSupport参数</strong></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">def bakPath = file(<span class="string">"$&#123;buildDir&#125;/bakApk/"</span>)</span><br><span class="line">def baseInfo = <span class="string">"app-1.0.0-0407-22-42-41"</span></span><br><span class="line">def variantName = <span class="string">"release"</span></span><br><span class="line"></span><br><span class="line">tinkerpatchSupport &#123;</span><br><span class="line">    tinkerpatchSupport &#123;</span><br><span class="line">    <span class="comment">/** 可以在debug的时候关闭 tinkerPatch **/</span></span><br><span class="line">    tinkerEnable = <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 是否使用一键接入功能  **/</span></span><br><span class="line">    reflectApplication = <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">    autoBackupApkPath = <span class="string">"$&#123;bakPath&#125;"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 在tinkerpatch.com得到的appKey **/</span></span><br><span class="line">    appKey = <span class="string">"yourAppKey"</span></span><br><span class="line">    <span class="comment">/** 注意: 若发布新的全量包, appVersion一定要更新 **/</span></span><br><span class="line">    appVersion = <span class="string">"1.0.0"</span></span><br><span class="line"></span><br><span class="line">    def pathPrefix = <span class="string">"$&#123;bakPath&#125;/$&#123;baseInfo&#125;/$&#123;variantName&#125;/"</span></span><br><span class="line">    def name = <span class="string">"$&#123;project.name&#125;-$&#123;variantName&#125;"</span></span><br><span class="line"></span><br><span class="line">    baseApkFile = <span class="string">"$&#123;pathPrefix&#125;/$&#123;name&#125;.apk"</span></span><br><span class="line">    baseProguardMappingFile = <span class="string">"$&#123;pathPrefix&#125;/$&#123;name&#125;-mapping.txt"</span></span><br><span class="line">    baseResourceRFile = <span class="string">"$&#123;pathPrefix&#125;/$&#123;name&#125;-R.txt"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>上述是需要自行配置的代码模块，其他引入参考:<a href="https://github.com/TinkerPatch/tinkerpatch-sample/blob/master/app/tinkerpatch.gradle">tinkerpatch.gradle </a><br>针对特殊需求，具体的参数含义可参考 Tinker 文档:<a href="https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97">Tinker接入指南.</a></p>
 <h2 id="③-初始化-TinkerPatch-SDK"><a href="#③-初始化-TinkerPatch-SDK" class="headerlink" title="③ 初始化 TinkerPatch SDK"></a><strong>③ 初始化 TinkerPatch SDK</strong></h2><h3 id="1-reflectApplication-true-的情况"><a href="#1-reflectApplication-true-的情况" class="headerlink" title="1.reflectApplication = true 的情况"></a><strong>1.reflectApplication = true 的情况</strong></h3><p>若我们使用 reflectApplication 模式，我们无需为接入 Tinker 而改造我们的 Application 类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        <span class="comment">// 我们可以从这里获得Tinker加载过程的信息</span></span><br><span class="line">        tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化TinkerPatch SDK, 更多配置可参照API章节中的,初始化SDK</span></span><br><span class="line">        TinkerPatch.init(tinkerApplicationLike)</span><br><span class="line">            .reflectPatchLibrary()</span><br><span class="line">            .setPatchRollbackOnScreenOff(<span class="keyword">true</span>)</span><br><span class="line">            .setPatchRestartOnSrceenOff(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 每隔3个小时去访问后台时候有更新,通过handler实现轮训的效果</span></span><br><span class="line">        <span class="keyword">new</span> FetchPatchHandler().fetchPatchWithInterval(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-
 <h3 id="2-reflectApplication-false-的情况"><a href="#2-reflectApplication-false-的情况" class="headerlink" title="2.reflectApplication = false 的情况"></a>2.reflectApplication = false 的情况</h3><p>若我们已经完成了应用的 Application 改造，即将 Application 的逻辑移动到 ApplicationLike类中</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleApplicationLike</span> <span class="keyword">extends</span> <span class="title">DefaultApplicationLike</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        <span class="comment">// 初始化TinkerPatch SDK, 更多配置可参照API章节中的,初始化 SDK</span></span><br><span class="line">        TinkerPatch.init(<span class="keyword">this</span>)</span><br><span class="line">            .reflectPatchLibrary()</span><br><span class="line">            .setPatchRollbackOnScreenOff(<span class="keyword">true</span>)</span><br><span class="line">            .setPatchRestartOnSrceenOff(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 每隔3个小时去访问后台时候有更新,通过handler实现轮训的效果</span></span><br><span class="line">        <span class="keyword">new</span> FetchPatchHandler().fetchPatchWithInterval(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="④-使用步骤（Release为例）"><a href="#④-使用步骤（Release为例）" class="headerlink" title="④ 使用步骤（Release为例）"></a><strong>④ 使用步骤（Release为例）</strong></h2><h3 id="使用gradle-进行apk签名打包"><a href="#使用gradle-进行apk签名打包" class="headerlink" title="使用gradle 进行apk签名打包"></a>使用gradle 进行apk签名打包</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">android &#123;  </span><br><span class="line"></span><br><span class="line">&lt;!--    signingConfigs &#123;  </span><br><span class="line">        releaseConfig &#123;  </span><br><span class="line">            keyAlias <span class="string">'stone'</span>  </span><br><span class="line">            keyPassword <span class="string">'mypwd'</span>  </span><br><span class="line">            <span class="function">storeFile <span class="title">file</span><span class="params">(<span class="string">'/Users/stone/Documents/project_AS/myapplication/stone.keystore'</span>)</span>  </span></span><br><span class="line"><span class="function">            storePassword 'mypwd'  </span></span><br><span class="line"><span class="function">        &#125;  </span></span><br><span class="line"><span class="function">    &#125; --&gt;</span></span><br><span class="line"><span class="function">      </span></span><br><span class="line"><span class="function"><span class="comment">//但是签名密码写在gradle中不安全</span></span></span><br><span class="line"><span class="function"><span class="comment">//这样在命令执行时，就会被要求输入密码</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">android </span>&#123;  </span><br><span class="line">    signingConfigs &#123;  </span><br><span class="line">        releaseConfig &#123;  </span><br><span class="line">        <span class="function">storeFile <span class="title">file</span><span class="params">(<span class="string">"stone.keystore"</span>)</span>  </span></span><br><span class="line"><span class="function">        storePassword System.<span class="title">console</span><span class="params">()</span> !</span>= <span class="keyword">null</span> ? System.console().readLine(<span class="string">"\nKeystore password: "</span>) : <span class="string">""</span> </span><br><span class="line">        keyAlias <span class="string">"stone"</span>  </span><br><span class="line">        keyPassword System.console() != <span class="keyword">null</span> ? System.console().readLine(<span class="string">"\nKey password: "</span>) : <span class="string">""</span> </span><br><span class="line">  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">     </span><br><span class="line">     buildTypes &#123;  </span><br><span class="line">        release &#123;  </span><br><span class="line">        ...  </span><br><span class="line">        signingConfig signingConfigs.release  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <hr>
 <ul>
 <li><strong>0. 运行<code>./gradlew assembleRelease</code> 构建基准包</strong></li>
@@ -246,10 +240,10 @@
 </blockquote>
 <p>解决方法</p>
 <blockquote>
-<p>./gradlew assembleRelease –no-daemon</p>
+<p>./gradlew assembleRelease —no-daemon</p>
 </blockquote>
 <ul>
-<li><p><strong>1. 运行./gradlew assembleRelease –no-daemon构建基准包</strong></p>
+<li><p><strong>1. 运行./gradlew assembleRelease —no-daemon构建基准包</strong></p>
 </li>
 <li><p><strong>2. 将步骤一中保存下来的文件手动填到baseInfo/中</strong></p>
 </li>
@@ -257,7 +251,7 @@
 <p>因为之前路径已经配置好，所以只需要把release.apk填写入baseInfo</p>
 <p><img src="http://oe90x7ww9.bkt.clouddn.com/tinker-1.png" alt></p>
 <ul>
-<li><strong>3. 修改源代码，运行./gradlew tinkerPatchRelease –no-daemon构建补丁包，补丁包将位于 build/outputs/tinkerPatch 中</strong></li>
+<li><strong>3. 修改源代码，运行./gradlew tinkerPatchRelease —no-daemon构建补丁包，补丁包将位于 build/outputs/tinkerPatch 中</strong></li>
 </ul>
 <p><img src="http://oe90x7ww9.bkt.clouddn.com/tinker-2.png" alt></p>
 <ul>
@@ -362,14 +356,14 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description">Talk is cheap.</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -381,7 +375,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -440,6 +434,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

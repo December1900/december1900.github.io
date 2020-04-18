@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-next.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-next.jpg">
+  <link rel="mask-icon" href="/images/favicon-next.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.7.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Optimization: Gradient Descent">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes for CS224N-L2">
+<meta property="og:url" content="https://github.com/December1900/December1900.github.io.git/2020/04/17/CS224N-L2/index.html">
+<meta property="og:site_name" content="Sweeney Di&#39;s Blog">
+<meta property="og:description" content="Optimization: Gradient Descent">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/15870239419064.png">
+<meta property="og:image" content="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/method1.jpeg">
+<meta property="og:image" content="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/15870275543284.png">
+<meta property="og:image" content="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/fx.jpeg">
+<meta property="og:updated_time" content="2020-04-18T10:27:52.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes for CS224N-L2">
+<meta name="twitter:description" content="Optimization: Gradient Descent">
+<meta name="twitter:image" content="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/15870239419064.png">
+
+<link rel="canonical" href="https://github.com/December1900/December1900.github.io.git/2020/04/17/CS224N-L2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Notes for CS224N-L2 | Sweeney Di's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Sweeney Di's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sweeney Di's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/December1900/December1900.github.io.git/2020/04/17/CS224N-L2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Sweeney Di">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sweeney Di's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Notes for CS224N-L2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 17 Apr 2020 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-17T00:00:00+08:00">17 Apr 2020</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 18 Apr 2020 18:27:52" itemprop="dateModified" datetime="2020-04-18T18:27:52+08:00">18 Apr 2020</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Optimization-Gradient-Descent"><a href="#Optimization-Gradient-Descent" class="headerlink" title="Optimization: Gradient Descent"></a>Optimization: Gradient Descent</h1><a id="more"></a>
+<p>Gradient Descent:</p>
+<ul>
+<li>$J(\theta)$ is of entire windows in the corpus</li>
+<li>$\nabla_{\theta} J(\theta)$ is expensive to compute</li>
+</ul>
+<p>Stochastic gradient descent:</p>
+<ul>
+<li>sample window in the simplest case</li>
+<li>For one window to work out and update</li>
+</ul>
+<p>Mini-batch gradient descent:</p>
+<ul>
+<li>The data is divided into several batches, and the parameters are updated in batches. So, a group of data in a batch jointly determines the direction of the gradient</li>
+<li>get less noisy estimates of the gradient because of the average rather than using one</li>
+<li>using GPU to go fast </li>
+</ul>
+<h2 id="Stochastic-gradients-with-word-vectors"><a href="#Stochastic-gradients-with-word-vectors" class="headerlink" title="Stochastic gradients with word vectors"></a>Stochastic gradients with word vectors</h2><p>$\nabla_{\theta} J(\theta)$ is very sparse, only update the word vectors that actually appear</p>
+<p>Solution:</p>
+<ul>
+<li>need sparse matrix to update certain rows of matrices U and V</li>
+<li>need to keep around a hash for word vectors</li>
+</ul>
+<h1 id="About-Glove"><a href="#About-Glove" class="headerlink" title="About Glove"></a>About Glove</h1><h2 id="why-not-capture-co-occurrence-counts-directly"><a href="#why-not-capture-co-occurrence-counts-directly" class="headerlink" title="why not capture co-occurrence counts directly"></a>why not capture co-occurrence counts directly</h2><p>Combine two options:</p>
+<ul>
+<li>For window: use window like word2vec around each word to capture both syntactic and semantic information</li>
+<li>For Word-doc co-occurrence matrix will give general topics leading to ‘Latent Semantic Analysis’</li>
+</ul>
+<p>Using window length 1 to build co-occurrence matrix</p>
+<ul>
+<li>I like deep learning.</li>
+<li>I like NLP.</li>
+<li>I enjoy flying.</li>
+</ul>
+<p><img src="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/15870239419064.png" alt="-w794"></p>
+<p>Problems:</p>
+<ul>
+<li>Increase in size with vocabulary</li>
+<li>High dimensional</li>
+<li>Subsequent classification models have sparsity issues</li>
+</ul>
+<h2 id="Method-Dimensionality-Reduction-on-Co-occurrence-Matrix"><a href="#Method-Dimensionality-Reduction-on-Co-occurrence-Matrix" class="headerlink" title="Method: Dimensionality Reduction on Co-occurrence Matrix"></a>Method: Dimensionality Reduction on Co-occurrence Matrix</h2><p>Factorizes X into $U\Sigma V^T$, where U and V are orthonormal and $\Sigma$ is the  diagonal matrix.<br>To reduce dimensionality, throw away the smallest singular values, while removing the rows and columns<br>corresponding to U and V.<br><img src="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/method1.jpeg" alt="method"></p>
+<p>What are the essence and standards of dimensionality reduction?</p>
+<blockquote>
+<p>Find the lower-dimensional representations which can explain most of the variance in the high-dimensional data</p>
+</blockquote>
+<h2 id="Encoding-meaning-in-vector-differences"><a href="#Encoding-meaning-in-vector-differences" class="headerlink" title="Encoding meaning in vector differences"></a>Encoding meaning in vector differences</h2><p>Summary: <strong><em>The learning of word vectors should be related to the ratio of the conditional probability of words</em></strong></p>
+<blockquote>
+<p><strong>Crucial insight</strong>: rations of co-occurrence probabilities can encode meaning components.<br>That means it’s not to have large/small by itself(Single probability) but the sort of the difference components(ration of co-occurrence) indicating a meaning component</p>
+</blockquote>
+<script type="math/tex; mode=display">Ratio(i, j, k) = \frac{P_{ik}}{P_{jk}}</script><p><img src="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/15870275543284.png" alt="ratios"></p>
+<h2 id="How-to-capture-ratios-of-co-occurrence-probabilities-as-achieve-linear-meaning-components-in-a-word-vector-space"><a href="#How-to-capture-ratios-of-co-occurrence-probabilities-as-achieve-linear-meaning-components-in-a-word-vector-space" class="headerlink" title="How to capture ratios of co-occurrence probabilities as achieve linear meaning components in a word vector space?"></a>How to capture ratios of co-occurrence probabilities as achieve linear meaning components in a word vector space?</h2><ul>
+<li>Log-bilinear mode: $w_i \cdot w_j = \log P(i|j)$</li>
+<li>with vector differences: $w_x \cdot (w_a - w_b) = \log \frac{P(x|a)}{P(x|b)}$</li>
+</ul>
+<h2 id="Co-occurrence-Matrix"><a href="#Co-occurrence-Matrix" class="headerlink" title="Co-occurrence Matrix"></a>Co-occurrence Matrix</h2><ul>
+<li>$X$: word-word co-occurrence matrix</li>
+<li>$X_{ij}$: number of times word j occur in the context of word</li>
+<li><script type="math/tex">X_i = \Sigma_k X_{ik}</script>: the number of times any word k appears in the context of word i</li>
+<li><script type="math/tex">P_{ij} = P(w_j|w_i) = \frac{X_{ij}}{X_i}</script>: the probability of j appearing in the context of word i</li>
+</ul>
+<h2 id="Least-Squares-Objective"><a href="#Least-Squares-Objective" class="headerlink" title="Least Squares Objective"></a>Least Squares Objective</h2><p>For the skip-gram model, the probability of word j appears int the context of word i, and implied the cross-entropy loss, like word2vec:</p>
+<script type="math/tex; mode=display">Q_{ij} = \frac {exp(\vec{u}^T_j\vec{v}_i)}{\Sigma^W_{w=1}exp(\vec{u}^T_w\vec{v}_i)}</script><script type="math/tex; mode=display">J = -\sum^W_{i=1}\sum^W_{j=1}X_{ij}logQ_{ij}</script><p>Considering the cross-entropy loss is that it requires the normalized, instead using a least square objective in which the normalization factors are discarded:</p>
+<script type="math/tex; mode=display">\hat J = \sum^W_{i=1}\sum^W_{j=1}X_{i}(\hat P_{ij} - \hat Q_{ij})^2 \tag{1.1}</script><p>where <script type="math/tex">\hat{P}_{ij} = X_{ij}</script> and <script type="math/tex">\hat{Q}_{ij} = exp(\vec{u}^T_j\vec{v}_i)</script> are the unnormalized distributions. However it brings another problem $X_{ij}$ often takes on large values and makes the optimization difficult.</p>
+<p><strong><em>An effective change is to minimize the squared error of the logarithms</em></strong>:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\hat{J} =& \sum^W_{i=1}\sum^W_{j=1}X_i(log(\hat P)_{ij} - log(\hat Q_{ij}))^2\\
+=& \sum^W_{i=1}\sum^W_{j=1}X_{i}(\vec u^T_j\vec v_i - logX_{ij})^2
+\tag {1.2}
+\end{align*}</script><p>Because the weighting factor $X_i$ is not guaranteed to be optimal. Instead, introducing a weighting function f(x) to concentrate the context word :</p>
+<script type="math/tex; mode=display">\hat J= \sum^W_{i=1}\sum^W_{j=1}f(X_{ij})(\vec u^T_j\vec v_i - logX_{ij})^2 \tag {1.3}</script><script type="math/tex; mode=display">f(x)=
+\begin{cases}
+(x/x_{max})^\alpha& if\ x < x_{max}\\
+1& else.
+\tag {1.4}
+\end{cases}</script><p><img src="https://mblog-1255701585.cos.ap-shanghai.myqcloud.com/2020/04/fx.jpeg" alt="f-x-"></p>
+<script type="math/tex; mode=display">when\; X_{ij}\; equals\; 0,f(x) = 0; when\; X_{ij}\; is\; very\; large , f(x) = 1</script><h2 id="Comparison-with-LSA-and-Word2Vec"><a href="#Comparison-with-LSA-and-Word2Vec" class="headerlink" title="Comparison with LSA and Word2Vec"></a>Comparison with LSA and Word2Vec</h2><h3 id="LSA-vs-GloVe"><a href="#LSA-vs-GloVe" class="headerlink" title="LSA vs GloVe"></a>LSA vs GloVe</h3><ul>
+<li>LSA based co-occurrence matrix can capture word similarities and do poorly on tasks such as word analogy.</li>
+<li>GloVe can be described as an optimal and efficient matrix factorization algorithm for LSA</li>
+</ul>
+<h3 id="Word2Vec-vs-GloVe"><a href="#Word2Vec-vs-GloVe" class="headerlink" title="Word2Vec vs GloVe"></a>Word2Vec vs GloVe</h3><ul>
+<li>Word2Vec is direct prediction; GloVe is count based(the cores lies in <a href="#Method: Dimensionality Reduction on Co-occurrence Matrix">Method</a>)</li>
+<li>Word2Vec use window to predict the context based <strong>local corpus</strong>; GloVe use window to build the co-occurrence matrix based <strong>global corpus</strong></li>
+<li>The loss of Word2Vec is the cross-entropy; The loss of GloVe is the least squared error</li>
+</ul>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Glove combines the advantages of matrix factorization and shallow window method, taking full use of global statistic and local context window.<br>By training only on the <strong>nonzero elements</strong> in a word-word co-occurrence matrix, and produces a vector space with meaningful sub-structure. GloVe can achieve better results faster compared with word2vec in the same situation.</p>
+<h1 id="What-is-“cross-entropy”-loss-error"><a href="#What-is-“cross-entropy”-loss-error" class="headerlink" title="What is “cross entropy” loss/error"></a>What is “cross entropy” loss/error</h1><p>Concept “entropy” is from information theory, which used to express the expectation of all information:</p>
+<script type="math/tex; mode=display">H(X) = - \sum^n_{i=1}p(x_i)\log(p(x_i)) \tag {2.1}</script><h2 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence"></a>KL Divergence</h2><p>Random variable x has two separate probability distributions P(x) and Q(x), KL is used to measure the difference between two distribution.</p>
+<blockquote>
+<p>In the context of machine learning, DKL(P‖Q) is often called the information gain achieved if P is used instead of Q.</p>
+</blockquote>
+<p>In deep learning, P is used to represent the true distribution, while Q means the predicted distribution.<br>It means if using P to describe the sample, that will be great, but using Q will need extra “information gain” to achieve the same result. Through repeated training, Q will not need “information gain” anymore.</p>
+<p>KL Divergence formula:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+D_{KL}(p||q) = & \sum^n_{i=1}p(x_i)\log(\frac{p(x_i)}{q(x_i)})\\
+= & \sum^n_{i=1}p(x_i)\log(p(x_i)) - \sum^n_{i=1}p(x_i)\log(q(x_i))\\
+= & -H(p(x)) - \sum^n_{i=1}p(x_i)\log(q(x_i))
+\tag {2.2}
+\end{align*}</script><h2 id="Cross-Entropy"><a href="#Cross-Entropy" class="headerlink" title="Cross Entropy"></a>Cross Entropy</h2><p>From $(2.2)$, the first half of the formula is the entropy of p, which will not change, so the rest is cross entropy:</p>
+<script type="math/tex; mode=display">H(p, q) = - \sum^n_{i=1}p(x_i)\log(q(x_i)) \tag {2.3}</script><p>Because it is essential to measure the difference between labels and predicts, so choosing KL Divergence. Actually -H(p) won’t change, hence using cross entropy for loss directly.</p>
+<h1 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h1><p>Derivation of GloVe algorithm</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"><i class="fa fa-tag"></i> NLP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/12/15/Volatile Keyword/" rel="prev" title="volatile关键字详解">
+      <i class="fa fa-chevron-left"></i> volatile关键字详解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Optimization-Gradient-Descent"><span class="nav-number">1.</span> <span class="nav-text">Optimization: Gradient Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stochastic-gradients-with-word-vectors"><span class="nav-number">1.1.</span> <span class="nav-text">Stochastic gradients with word vectors</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#About-Glove"><span class="nav-number">2.</span> <span class="nav-text">About Glove</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-not-capture-co-occurrence-counts-directly"><span class="nav-number">2.1.</span> <span class="nav-text">why not capture co-occurrence counts directly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-Dimensionality-Reduction-on-Co-occurrence-Matrix"><span class="nav-number">2.2.</span> <span class="nav-text">Method: Dimensionality Reduction on Co-occurrence Matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-meaning-in-vector-differences"><span class="nav-number">2.3.</span> <span class="nav-text">Encoding meaning in vector differences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-capture-ratios-of-co-occurrence-probabilities-as-achieve-linear-meaning-components-in-a-word-vector-space"><span class="nav-number">2.4.</span> <span class="nav-text">How to capture ratios of co-occurrence probabilities as achieve linear meaning components in a word vector space?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Co-occurrence-Matrix"><span class="nav-number">2.5.</span> <span class="nav-text">Co-occurrence Matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Least-Squares-Objective"><span class="nav-number">2.6.</span> <span class="nav-text">Least Squares Objective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparison-with-LSA-and-Word2Vec"><span class="nav-number">2.7.</span> <span class="nav-text">Comparison with LSA and Word2Vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LSA-vs-GloVe"><span class="nav-number">2.7.1.</span> <span class="nav-text">LSA vs GloVe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2Vec-vs-GloVe"><span class="nav-number">2.7.2.</span> <span class="nav-text">Word2Vec vs GloVe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">2.7.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-“cross-entropy”-loss-error"><span class="nav-number">3.</span> <span class="nav-text">What is “cross entropy” loss/error</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#KL-Divergence"><span class="nav-number">3.1.</span> <span class="nav-text">KL Divergence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cross-Entropy"><span class="nav-number">3.2.</span> <span class="nav-text">Cross Entropy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-do"><span class="nav-number">4.</span> <span class="nav-text">To do</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sweeney Di"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Sweeney Di</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/December1900" title="GitHub → https://github.com/December1900"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/december1900" title="Twitter → https://twitter.com/december1900" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sweeney Di</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+
+</html>

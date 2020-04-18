@@ -122,12 +122,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -167,7 +167,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="Talk is cheap.">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -225,14 +225,10 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//APP_ID为微信注册成功显示的APP_ID</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String APP_ID = <span class="string">"wx888888888"</span>;</span><br><span class="line"><span class="keyword">private</span> IWXAPI api;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//transaction需要的类型</span></span><br><span class="line"><span class="keyword">private</span> String type = <span class="string">"webpage"</span>;</span><br><span class="line">  </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_web);</span><br><span class="line">    shareTOWeixin();</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shareTOWeixin</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//不太理解这里false和true有什么作用</span></span><br><span class="line">    api = WXAPIFactory.createWXAPI(getApplicationContext(), APP_ID, <span class="keyword">false</span>);</span><br><span class="line">    api.registerApp(APP_ID);</span><br><span class="line">    </span><br><span class="line">    WXWebpageObject webpage = <span class="keyword">new</span> WXWebpageObject();</span><br><span class="line">    webpage.webpageUrl = url;</span><br><span class="line">    WXMediaMessage msg = <span class="keyword">new</span> WXMediaMessage(webpage);</span><br><span class="line">    msg.title = title;</span><br><span class="line">    msg.description = intro;</span><br><span class="line">    Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, <span class="number">150</span>, <span class="number">150</span>, <span class="keyword">true</span>);</span><br><span class="line">    bmp.recycle();</span><br><span class="line">    msg.setThumbImage(bmp);</span><br><span class="line">    SendMessageToWX.Req req = <span class="keyword">new</span> SendMessageToWX.Req();</span><br><span class="line">    req.transaction = type + System.currentTimeMillis();</span><br><span class="line">    req.message = msg;</span><br><span class="line">    req.scene = SendMessageToWX.Req.WXSceneTimeline;</span><br><span class="line">    api.sendReq(req);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h1 id="跳坑-带泪的亲历"><a href="#跳坑-带泪的亲历" class="headerlink" title="跳坑(带泪的亲历)"></a>跳坑(带泪的亲历)</h1><ul>
 <li>一定要在你的包名根目录下创建wxapi包，然后在该包下创建activity命名为【<strong>WXEntryActivity</strong>】(写死不可更改)并实现IWXAPIEventHandler接口，不然怎么挂的都不知道</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXEntryActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">IWXAPIEventHandler</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String APP_ID = <span class="string">"wxf054659decf8f748"</span>;</span><br><span class="line">	<span class="keyword">private</span> IWXAPI api;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	</span><br><span class="line">	    api = WXAPIFactory.createWXAPI(<span class="keyword">this</span>, APP_ID,<span class="keyword">false</span>);</span><br><span class="line">	    api.registerApp(APP_ID);</span><br><span class="line">	    api.handleIntent(getIntent(),<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReq</span><span class="params">(BaseReq baseReq)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResp</span><span class="params">(BaseResp baseResp)</span> </span>&#123;</span><br><span class="line">	    String result = <span class="keyword">null</span>;</span><br><span class="line">	    <span class="keyword">switch</span> (baseResp.errCode)&#123;</span><br><span class="line">	        <span class="keyword">case</span> BaseResp.ErrCode.ERR_OK:</span><br><span class="line">	            result = <span class="string">"发送成功"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>,result,Toast.LENGTH_SHORT).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	</span><br><span class="line">	        <span class="keyword">case</span> BaseResp.ErrCode.ERR_USER_CANCEL:</span><br><span class="line">	            result = <span class="string">"发送失败"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>,result,Toast.LENGTH_SHORT).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	</span><br><span class="line">	        <span class="keyword">case</span> BaseResp.ErrCode.ERR_AUTH_DENIED:</span><br><span class="line">	            result = <span class="string">"发送被拒绝"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>, result, Toast.LENGTH_LONG).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	</span><br><span class="line">	        <span class="keyword">default</span>:</span><br><span class="line">	            result = <span class="string">"发送返回"</span>;</span><br><span class="line">	            Toast.makeText(<span class="keyword">this</span>, result, Toast.LENGTH_LONG).show();</span><br><span class="line">	            finish();</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">super</span>.onNewIntent(intent);</span><br><span class="line">	    setIntent(intent);</span><br><span class="line">	    api.handleIntent(intent, <span class="keyword">this</span>);</span><br><span class="line">	    finish();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="分享未成功"><a href="#分享未成功" class="headerlink" title="分享未成功"></a>分享未成功</h2><ul>
 <li><strong>调试(分享)功能时要打【app-release.apk】，并且要对照本地签名和微信服务器端签名是否一致</strong></li>
 </ul>
@@ -332,14 +328,14 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description">Talk is cheap.</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -351,7 +347,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -410,6 +406,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

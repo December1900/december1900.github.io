@@ -122,12 +122,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -167,7 +167,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
       <meta itemprop="name" content="Sweeney Di">
-      <meta itemprop="description" content="Talk is cheap.">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -221,24 +221,19 @@
 <ul>
 <li><p><strong>使用AS要根据提示设置android:name=android.intent.action</strong></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">"com.tencent.android.tpush.XGPushActivity"</span></span><br><span class="line">    android:exported=<span class="string">"true"</span>&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;!-- 若使用AndroidStudio，请设置android:name=<span class="string">"android.intent.action"</span>--&gt;</span><br><span class="line">        &lt;action android:name=<span class="string">"android.intent.action"</span>/&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><strong>正确配置XGRemoteService，且intent-filter中是否正确设置</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;action android:name=<span class="string">"应用包名.PUSH_ACTION"</span> /&gt; 应用包名为当前APP包名</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><strong>完成配置后，在工程的主activity(一般都是mainactivity)onCreate重载方法里添加如下代码</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Context context = getApplicationContext();</span><br><span class="line">          XGPushConfig.enableDebug(<span class="keyword">this</span>,<span class="keyword">true</span>);</span><br><span class="line">          XGPushConfig.getToken(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//为了方便获取注册是否成功的状态，使用带callback的版本</span></span><br><span class="line">		  XGPushManager.registerPush(context,<span class="string">"users"</span>,newXGIOperateCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span> <span class="params">(Object data,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">            Log.d(<span class="string">"TPush"</span>, <span class="string">"注册成功，设备token为："</span> + data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFail</span> <span class="params">(Object data,<span class="keyword">int</span> errCode, String msg)</span></span>&#123;</span><br><span class="line">            Log.d(<span class="string">"TPush"</span>, <span class="string">"注册失败，错误码："</span> + errCode + <span class="string">",错误信息："</span> + msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-
 </li>
 </ul>
 <ul>
 <li><p><strong>正确输入自己的ACCESS ID和ACCESS KEY</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“<span class="number">21</span>”开头的<span class="number">10</span>位数字，中间没空格 --&gt;</span><br><span class="line">&lt;meta-data</span><br><span class="line">    android:name=<span class="string">"XG_V2_ACCESS_ID"</span></span><br><span class="line">    android:value=<span class="string">"21********"</span>/&gt;</span><br><span class="line">&lt;!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的<span class="number">12</span>位字符串，中间没空格 --&gt;</span><br><span class="line">&lt;meta-data</span><br><span class="line">    android:name=<span class="string">"XG_V2_ACCESS_KEY"</span></span><br><span class="line">    android:value=<span class="string">"A***********"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <hr>
@@ -247,16 +242,13 @@
 <li><strong>按照指示将下载下来的libs中的so和jar集成到AS上的libs中去，其中V4包直接删掉因为没有谁不带support库的，然后要在build.gradle添加如下代码</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sourceSets &#123;</span><br><span class="line">		 main&#123;</span><br><span class="line">				 jniLibs.srcDirs=[<span class="string">'libs'</span>]&#125;</span><br><span class="line">		 &#125;</span><br></pre></td></tr></table></figure>
-
-
 <ul>
 <li><p><strong>编译时候出现无法找到so文件</strong></p>
 <ul>
 <li><p>第一是需要添加多个平台的so文件，只按照官方文档添加一个armeabi是肯定行不通的，因为每个品牌的手机需要的so文件是不一样的，如果做测试肯定需要每个平台的so文件来适配主流手机</p>
 <p> 拿我自己来说魅族手机需要添加armeabi，armeabi-v7，arm64-v8a<br> 但小米就只需要添加armeabi,armeabi-v7 </p>
 </li>
-<li><p>第二如果工程之前就添加了某些平台的so文件(比如andfix)，则需要把所有的so文件分平台「<strong>合并</strong>」否则也会找不到so文件</p>
-</li>
+<li>第二如果工程之前就添加了某些平台的so文件(比如andfix)，则需要把所有的so文件分平台「<strong>合并</strong>」否则也会找不到so文件</li>
 </ul>
 </li>
 </ul>
@@ -357,14 +349,14 @@
     <img class="site-author-image" itemprop="image" alt="Sweeney Di"
       src="/images/avatar.JPG">
   <p class="site-author-name" itemprop="name">Sweeney Di</p>
-  <div class="site-description" itemprop="description">Talk is cheap.</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -376,7 +368,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -435,6 +427,8 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
